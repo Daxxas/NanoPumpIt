@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using PathCreation;
@@ -12,6 +13,7 @@ public class CartController : MonoBehaviour
     [SerializeField] private Vector3 positionOffset;
     private float distanceTravelled = 0f;
     
+
     // Update is called once per frame
     void Update()
     {
