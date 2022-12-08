@@ -15,7 +15,7 @@ public class CartController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceTravelled += Time.deltaTime;
+        distanceTravelled += Time.deltaTime * cartSpeed;
         transform.position = path.path.GetPointAtDistance(distanceTravelled) + positionOffset;
         transform.rotation = path.path.GetRotationAtDistance(distanceTravelled) * rotationOffset;
     }
