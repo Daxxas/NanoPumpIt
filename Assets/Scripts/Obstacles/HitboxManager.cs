@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class HitboxManager : MonoBehaviour
 {
+    public Action onHit;
+    
     public enum Hitbox
     {
         Left = 0,
@@ -16,6 +18,14 @@ public class HitboxManager : MonoBehaviour
     
     [Header("Hitboxes")]
     [SerializeField] List<PlayerHitbox> playerHitboxes;
+    
+    private void Awake()
+    {
+        foreach (var playerHitbox in playerHitboxes)
+        {
+            playerHitbox.onHit += () => onHit?.Invoke();
+        }
+    }
 
     public void SetActiveHitbox(int index, bool isActive)
     {
