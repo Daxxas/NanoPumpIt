@@ -6,17 +6,20 @@ public class PlayersController : MonoBehaviour
 {
     [SerializeField] private HitboxManager hitboxManager;
     [SerializeField] private PlayerInputManager playerInputManager;
-    [SerializeField] private CartController cartController;  
+    [SerializeField] private CartController cartController;
+    [SerializeField] private Animator[] animators;
     private InputProvider[] inputProviders = new InputProvider[2];
     
     private int playerIndexTurn = 0;
-
+    private float pumpEquilibrium = 1f;
     public InputProvider[] InputProviders => inputProviders;
 
     public void Update()
     {
+        
         if ((inputProviders[0] != null) && (inputProviders[1] != null))
         {
+            // int lean inputs
             int leanDir0 = inputProviders[0].getLeanDirection();
             int leanDir1 = inputProviders[1].getLeanDirection();
             if ((leanDir0 == leanDir1) && (leanDir0 != 0))
@@ -27,8 +30,20 @@ public class PlayersController : MonoBehaviour
             {
                 cartController.Lean(0);
             }
+
+            // lean animation
+            animators[0].SetFloat("PUSH_PULL", inputProviders[0].getLeanValue());
+            animators[1].SetFloat("PUSH_PULL", inputProviders[1].getLeanValue());
         }
-        
+
+        // HIGH LOW animation
+        Debug.Log(playerIndexTurn);
+        if (playerIndexTurn == 1) pumpEquilibrium += Time.deltaTime * 4;
+        else if (playerIndexTurn == 0) pumpEquilibrium -= Time.deltaTime * 4;
+        pumpEquilibrium = Mathf.Clamp01(pumpEquilibrium);
+
+        animators[0].SetFloat("HIGH_LOW", 1-pumpEquilibrium);
+        animators[1].SetFloat("HIGH_LOW", pumpEquilibrium);
     }
     public void Pump(int playerIndex)
     {
@@ -36,7 +51,6 @@ public class PlayersController : MonoBehaviour
         {
             SwitchPlayerIndex();
             cartController.AccelerateCart();
-            Debug.Log("test " + playerIndex);
         }
         else
         {
