@@ -17,7 +17,8 @@ public class InputProvider : MonoBehaviour
 
     public void Pump(InputAction.CallbackContext context)
     {
-        onPump?.Invoke(playerInfo.playerIndex);
+        if(context.performed)
+            onPump?.Invoke(playerInfo.playerIndex);
     }
 
     public void Dodge(InputAction.CallbackContext context)

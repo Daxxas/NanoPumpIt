@@ -4,25 +4,13 @@ using UnityEngine.InputSystem;
 
 public class PlayersController : MonoBehaviour
 {
+    [SerializeField] private PlayerInputManager playerInputManager;
     [SerializeField] private CartController cartController;  
     private InputProvider[] inputProviders = new InputProvider[2];
-    private int playerCount = 0;
     
     private int playerIndexTurn = 0;
 
-    public InputProvider[] InputProviders
-    {
-        get;
-    }
-
-    public void AddPlayer(PlayerInput playerInput)
-    {
-        inputProviders[playerCount] = playerInput.GetComponent<InputProvider>();
-        playerInput.GetComponent<PlayerInfo>().PlayerIndex = playerCount;
-
-        inputProviders[playerCount].onPump += Pump;
-        playerCount++;
-    }
+    public InputProvider[] InputProviders => inputProviders;
 
     public void Pump(int playerIndex)
     {
@@ -35,6 +23,7 @@ public class PlayersController : MonoBehaviour
         else
         {
             // Player who pressed pump button is not the one who should pump
+            Debug.Log("Wrong pump !");
         }
     
     }
@@ -42,6 +31,6 @@ public class PlayersController : MonoBehaviour
     private void SwitchPlayerIndex()
     {
         // alternate between 0 and 1
-        playerIndexTurn = (playerIndexTurn + 1) % playerCount;
+        playerIndexTurn = (playerIndexTurn + 1) % 2;
     }
 }
