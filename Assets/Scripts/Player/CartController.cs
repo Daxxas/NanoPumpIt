@@ -66,7 +66,7 @@ public class CartController : MonoBehaviour
     private void OnGUI()
     {
 #if UNITY_EDITOR
-        GUI.Label(new Rect(10, 10, 100, 20), $"Cart Speed: {cartSpeed}");
+        //GUI.Label(new Rect(10, 10, 100, 20), $"Cart Speed: {cartSpeed}");
 #endif
     }
 
