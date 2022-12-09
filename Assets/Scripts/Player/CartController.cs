@@ -38,9 +38,7 @@ public class CartController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CartSpeed -= cartDeccelerationRate;
-        
-        
+        CartSpeed -= cartDeccelerationRate * Time.fixedDeltaTime;
     }
 
     private void OnGUI()
