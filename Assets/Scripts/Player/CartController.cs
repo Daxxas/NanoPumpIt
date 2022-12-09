@@ -41,7 +41,16 @@ public class CartController : MonoBehaviour
             cartSpeed = value;
             cartSpeed = Mathf.Clamp(cartSpeed, cartMinSpeed, cartMaxSpeed);
         }
-        
+    }
+
+    private void Awake()
+    {
+        hitboxManager.onHit += DeccelerateCart;
+    }
+
+    public void DeccelerateCart()
+    {
+        CartSpeed = cartMinSpeed;
     }
 
     public void AccelerateCart()
