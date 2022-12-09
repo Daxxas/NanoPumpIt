@@ -37,7 +37,7 @@ public class PlayersController : MonoBehaviour
         }
 
         // HIGH LOW animation
-        Debug.Log(playerIndexTurn);
+        // Debug.Log(playerIndexTurn);
         if (playerIndexTurn == 1) pumpEquilibrium += Time.deltaTime * 4;
         else if (playerIndexTurn == 0) pumpEquilibrium -= Time.deltaTime * 4;
         pumpEquilibrium = Mathf.Clamp01(pumpEquilibrium);

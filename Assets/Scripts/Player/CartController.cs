@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using PathCreation;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 public class CartController : MonoBehaviour
@@ -13,6 +14,7 @@ public class CartController : MonoBehaviour
     [SerializeField] private Transform graphicsObject;
     [SerializeField] private PathCreator path;
     [SerializeField] private HitboxManager hitboxManager;
+    [SerializeField] private UnityEvent onSlide;
     
     [Header("Cart Controls")]
     [SerializeField] private float cartMinSpeed = 1f;
@@ -26,7 +28,7 @@ public class CartController : MonoBehaviour
     [Header("Others")]
     [SerializeField] private Quaternion rotationOffset = Quaternion.identity;
     private float distanceTravelled = 0f;
-    
+
     [Header("Display info")]
     [SerializeField] private float cartSpeed = 0f;
     private float rampCoef = 1f;
@@ -73,6 +75,12 @@ public class CartController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if (cartSpeed > 2)
+        // {
+        //     SoundManager.Instance.SetMusicParameter(4);
+        //     Debug.Log("Set music paramter");
+        // }
+        
         distanceTravelled += Time.deltaTime * cartSpeed;
         transform.position = path.path.GetPointAtDistance(distanceTravelled);
         transform.rotation = path.path.GetRotationAtDistance(distanceTravelled) * rotationOffset;
@@ -107,11 +115,14 @@ public class CartController : MonoBehaviour
         {
             // Leaning to left, disable left hibox
             hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.DownRight, false);
+            onSlide?.Invoke();
         }
         else if (direction == 1)
         {
             // Leaning to right, disable left hibox
             hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.DownLeft, false);
+            onSlide?.Invoke();
+
         }
         
         leanState = direction;
