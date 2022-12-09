@@ -1224,14 +1224,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb33953313072b04da374e573c21eb4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphicsObject: {fileID: 0}
   path: {fileID: 988646532}
-  cartSpeed: 1
+  hitboxManager: {fileID: 0}
   cartMinSpeed: 1
   cartMaxSpeed: 5
   cartPumpAcceleration: 0.2
   cartDeccelerationRate: 0.01
+  accelerationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   rotationOffset: {x: -0.49987787, y: 0.5001221, z: -0.49987787, w: -0.5001221}
-  positionOffset: {x: 0, y: -0.4, z: 0}
+  cartSpeed: 1
 --- !u!114 &1435532357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1244,6 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4757e495e6404f3bbabfbc7de4187bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitboxManager: {fileID: 0}
   playerInputManager: {fileID: 1276036981}
   cartController: {fileID: 1435532356}
 --- !u!1 &1460021122

@@ -1624,7 +1624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4757e495e6404f3bbabfbc7de4187bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitboxManager: {fileID: 0}
+  hitboxManager: {fileID: 1435532358}
   playerInputManager: {fileID: 1276036981}
   cartController: {fileID: 1435532356}
 --- !u!114 &1435532358
