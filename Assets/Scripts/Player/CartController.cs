@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using PathCreation;
 using UnityEditor;
 using UnityEngine;
@@ -8,6 +9,8 @@ using UnityEngine.Rendering;
 
 public class CartController : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private Transform graphicsObject;
     [SerializeField] private PathCreator path;
     
     [Header("Cart Controls")]
