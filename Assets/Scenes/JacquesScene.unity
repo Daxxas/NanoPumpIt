@@ -1182,7 +1182,7 @@ MonoBehaviour:
   cartMinSpeed: 1
   cartMaxSpeed: 5
   cartPumpAcceleration: 0.2
-  cartDeccelerationRate: 0.1
+  cartDeccelerationRate: 0.001
   rotationOffset: {x: -0.49987787, y: 0.5001221, z: -0.49987787, w: -0.5001221}
   positionOffset: {x: 0, y: -0.4, z: 0}
 --- !u!114 &1435532357
