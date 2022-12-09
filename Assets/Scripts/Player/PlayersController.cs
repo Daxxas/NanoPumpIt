@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayersController : MonoBehaviour
 {
+    [SerializeField] private HitboxManager hitboxManager;
     [SerializeField] private PlayerInputManager playerInputManager;
     [SerializeField] private CartController cartController;  
     private InputProvider[] inputProviders = new InputProvider[2];
@@ -49,5 +50,15 @@ public class PlayersController : MonoBehaviour
     {
         // alternate between 0 and 1
         playerIndexTurn = (playerIndexTurn + 1) % 2;
+        if (playerIndexTurn == 0)
+        {
+            hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.Left, false);
+            hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.Right, true);
+        }
+        else
+        {
+            hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.Left, true);
+            hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.Right, false);
+        }
     }
 }
