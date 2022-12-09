@@ -5,17 +5,31 @@ using UnityEngine.InputSystem;
 
 public class InputProvider : MonoBehaviour
 {
-    public Action onPump;
-    public Action<Vector2> onDodge;
+    private PlayerInfo playerInfo;
+
+    public Action<int> onPump;
+
+    private int leanDirection = 0;
+
+    private void Start()
+    {
+        playerInfo = GetComponent<PlayerInfo>();
+    }
 
     public void Pump(InputAction.CallbackContext context)
     {
-        onPump?.Invoke();
+        if(context.performed)
+            onPump?.Invoke(playerInfo.playerIndex);
     }
 
-    public void Dodge(InputAction.CallbackContext context)
+    public void Lean(InputAction.CallbackContext context)
     {
-        onDodge?.Invoke(context.ReadValue<Vector2>());
+        leanDirection = Mathf.RoundToInt(context.ReadValue<Vector2>().x);
     }
-    
+
+    public int getLeanDirection()
+    {
+        return leanDirection;
+    }
+
 }
