@@ -9,6 +9,7 @@ public class InputProvider : MonoBehaviour
 
     public Action<int> onPump;
 
+    private float leanValue = 0f;
     private int leanDirection = 0;
 
     private void Start()
@@ -24,12 +25,13 @@ public class InputProvider : MonoBehaviour
 
     public void Lean(InputAction.CallbackContext context)
     {
-        leanDirection = Mathf.RoundToInt(context.ReadValue<Vector2>().x);
+        leanValue = context.ReadValue<Vector2>().x;
+        leanDirection = Mathf.RoundToInt(leanValue);
     }
 
+    public float getLeanValue()
+    { return leanValue; }
     public int getLeanDirection()
-    {
-        return leanDirection;
-    }
+    { return leanDirection; }
 
 }
