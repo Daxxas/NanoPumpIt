@@ -15,6 +15,7 @@ public class PlayerInputManagerController : MonoBehaviour
         playerInput.GetComponent<PlayerInfo>().PlayerIndex = playerCount;
 
         playersController.InputProviders[playerCount].onPump += playersController.Pump;
+        //playersController.InputProviders[playerCount].onLean += playersController.Lean;
         playerCount++;
         TryDisableJoin();
     }

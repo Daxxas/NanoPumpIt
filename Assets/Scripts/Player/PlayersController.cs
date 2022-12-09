@@ -12,6 +12,23 @@ public class PlayersController : MonoBehaviour
 
     public InputProvider[] InputProviders => inputProviders;
 
+    public void Update()
+    {
+        if ((inputProviders[0] != null) && (inputProviders[1] != null))
+        {
+            int leanDir0 = inputProviders[0].getLeanDirection();
+            int leanDir1 = inputProviders[1].getLeanDirection();
+            if ((leanDir0 == leanDir1) && (leanDir0 != 0))
+            {
+                cartController.Lean(leanDir0);
+            }
+            else
+            {
+                cartController.Lean(0);
+            }
+        }
+        
+    }
     public void Pump(int playerIndex)
     {
         if (playerIndex == playerIndexTurn)
@@ -27,7 +44,7 @@ public class PlayersController : MonoBehaviour
         }
     
     }
-    
+
     private void SwitchPlayerIndex()
     {
         // alternate between 0 and 1

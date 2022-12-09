@@ -8,7 +8,8 @@ public class InputProvider : MonoBehaviour
     private PlayerInfo playerInfo;
 
     public Action<int> onPump;
-    public Action<Vector2> onDodge;
+
+    private int leanDirection = 0;
 
     private void Start()
     {
@@ -21,9 +22,14 @@ public class InputProvider : MonoBehaviour
             onPump?.Invoke(playerInfo.playerIndex);
     }
 
-    public void Dodge(InputAction.CallbackContext context)
+    public void Lean(InputAction.CallbackContext context)
     {
-        onDodge?.Invoke(context.ReadValue<Vector2>());
+        leanDirection = Mathf.RoundToInt(context.ReadValue<Vector2>().x);
     }
-    
+
+    public int getLeanDirection()
+    {
+        return leanDirection;
+    }
+
 }
