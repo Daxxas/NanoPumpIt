@@ -4,8 +4,11 @@ using UnityEngine.InputSystem;
 
 public class PlayersController : MonoBehaviour
 {
+    [SerializeField] private CartController cartController;  
     private InputProvider[] inputProviders = new InputProvider[2];
-    private int playerIndex = 0;
+    private int playerCount = 0;
+    
+    private int playerIndexTurn = 0;
 
     public InputProvider[] InputProviders
     {
@@ -14,14 +17,31 @@ public class PlayersController : MonoBehaviour
 
     public void AddPlayer(PlayerInput playerInput)
     {
-        inputProviders[playerIndex] = playerInput.GetComponent<InputProvider>();
+        inputProviders[playerCount] = playerInput.GetComponent<InputProvider>();
+        playerInput.GetComponent<PlayerInfo>().PlayerIndex = playerCount;
 
-        inputProviders[playerIndex].onPump += Pump;
-        playerIndex++;
+        inputProviders[playerCount].onPump += Pump;
+        playerCount++;
     }
 
-    public void Pump()
+    public void Pump(int playerIndex)
     {
-        Debug.Log("test");
+        if (playerIndex == playerIndexTurn)
+        {
+            SwitchPlayerIndex();
+            cartController.AccelerateCart();
+            Debug.Log("test " + playerIndex);
+        }
+        else
+        {
+            // Player who pressed pump button is not the one who should pump
+        }
+    
+    }
+    
+    private void SwitchPlayerIndex()
+    {
+        // alternate between 0 and 1
+        playerIndexTurn = (playerIndexTurn + 1) % playerCount;
     }
 }

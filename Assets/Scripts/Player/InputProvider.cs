@@ -5,12 +5,19 @@ using UnityEngine.InputSystem;
 
 public class InputProvider : MonoBehaviour
 {
-    public Action onPump;
+    private PlayerInfo playerInfo;
+
+    public Action<int> onPump;
     public Action<Vector2> onDodge;
+
+    private void Start()
+    {
+        playerInfo = GetComponent<PlayerInfo>();
+    }
 
     public void Pump(InputAction.CallbackContext context)
     {
-        onPump?.Invoke();
+        onPump?.Invoke(playerInfo.playerIndex);
     }
 
     public void Dodge(InputAction.CallbackContext context)
