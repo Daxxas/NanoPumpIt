@@ -25,7 +25,6 @@ public class PumpController : MonoBehaviour
     private void Start()
     {
         float pumpAnimationSpeedModifier = pumpAnimation.length / minPumpTime;
-        Debug.Log("Speed Modifier: " + pumpAnimationSpeedModifier);
         cartAnimator.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
     }
 

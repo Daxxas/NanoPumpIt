@@ -1032,6 +1032,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4757e495e6404f3bbabfbc7de4187bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1140186972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4546876129765218039}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb33953313072b04da374e573c21eb4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1250548643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,6 +1595,7 @@ GameObject:
   - component: {fileID: 1972978223}
   - component: {fileID: 1972978222}
   - component: {fileID: 1972978224}
+  - component: {fileID: 1972978225}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -1611,7 +1624,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 4546876129765218040}
   m_Follow: {fileID: 4546876129765218040}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 87.14691
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -1674,6 +1687,22 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
+--- !u!114 &1972978225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972978221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bba89dbafc9479dbd34499eec7e2910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cartController: {fileID: 1140186972}
+  camera: {fileID: 1972978222}
+  minFOV: 60
+  maxFOV: 70
 --- !u!1 &2062368491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,7 +1828,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 87.14691
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
