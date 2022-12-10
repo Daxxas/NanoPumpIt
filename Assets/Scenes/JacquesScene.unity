@@ -303,6 +303,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &158550326 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4546876129800933231, guid: f4f77f7017a78404fbd97693ab351ecd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4546876129765218039}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +943,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4757e495e6404f3bbabfbc7de4187bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1158627449 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4523724305162183490, guid: f4f77f7017a78404fbd97693ab351ecd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4546876129765218039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1247174577 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4546876129313000168, guid: f4f77f7017a78404fbd97693ab351ecd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4546876129765218039}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1250548643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,7 +1121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInputManager: {fileID: 1276036981}
-  playersController: {fileID: 1140186970}
+  pumpController: {fileID: 1140186970}
 --- !u!1 &1431984220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1595,31 @@ PrefabInstance:
       objectReference: {fileID: 988646532}
     - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
         type: 3}
+      propertyPath: cartAnimator
+      value: 
+      objectReference: {fileID: 1158627449}
+    - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: playerInputsHolder
+      value: 
+      objectReference: {fileID: 1276036982}
+    - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: charactersAnimators.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: charactersAnimators.Array.data[0]
+      value: 
+      objectReference: {fileID: 158550326}
+    - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: charactersAnimators.Array.data[1]
+      value: 
+      objectReference: {fileID: 1247174577}
+    - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
       propertyPath: onSlide.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 31444950}
@@ -1585,6 +1628,11 @@ PrefabInstance:
       propertyPath: playerInputManager
       value: 
       objectReference: {fileID: 1276036981}
+    - target: {fileID: 4546876128747194797, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: playerInputsHolder
+      value: 
+      objectReference: {fileID: 1276036982}
     - target: {fileID: 4546876128747194799, guid: f4f77f7017a78404fbd97693ab351ecd,
         type: 3}
       propertyPath: m_Name

@@ -15,6 +15,11 @@ public class CartController : MonoBehaviour
     [SerializeField] private PathCreator path;
     [SerializeField] private HitboxManager hitboxManager;
     [SerializeField] private UnityEvent onSlide;
+    [SerializeField] private PlayerInputsHolder playerInputsHolder;
+    
+    [Header("Animators")]
+    [SerializeField] private Animator[] charactersAnimators;
+    [SerializeField] private Animator cartAnimator;
     
     [Header("Cart Controls")]
     [SerializeField] private float cartMinSpeed = 1f;
@@ -76,11 +81,29 @@ public class CartController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (cartSpeed > 2)
-        // {
-        //     SoundManager.Instance.SetMusicParameter(4);
-        //     Debug.Log("Set music paramter");
-        // }
+        if (playerInputsHolder.InputProviders[0] != null && playerInputsHolder.InputProviders[1] != null)
+        {
+            // int lean inputs
+            int leanDir0 = playerInputsHolder.InputProviders[0].getLeanDirection();
+            int leanDir1 = playerInputsHolder.InputProviders[1].getLeanDirection();
+            
+            // Debug.Log("LeanValue P1 : " + leanDir0 + " LeanValue P2 : " + leanDir1);
+            if ((leanDir0 == leanDir1) && (leanDir0 != 0))
+            {
+                Lean(leanDir0);
+            }
+            else
+            {
+                Lean(0);
+            }
+
+            cartAnimator.SetInteger("LeanDirection", LeanDirection);
+
+            
+            // lean animation
+            charactersAnimators[0].SetFloat("PUSH_PULL", playerInputsHolder.InputProviders[0].getLeanValue());
+            charactersAnimators[1].SetFloat("PUSH_PULL", playerInputsHolder.InputProviders[1].getLeanValue());
+        }
         
         distanceTravelled += Time.deltaTime * cartSpeed;
         transform.position = path.path.GetPointAtDistance(distanceTravelled);
@@ -107,7 +130,6 @@ public class CartController : MonoBehaviour
     private void SetLeanState(int direction)
     {
         Debug.Log("LEAN ||| " + direction);
-
         
         hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.DownRight, true);
         hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.DownLeft, true);
