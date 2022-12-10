@@ -4,10 +4,15 @@ using UnityEngine.InputSystem;
 
 public class PlayersController : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private HitboxManager hitboxManager;
     [SerializeField] private PlayerInputManager playerInputManager;
     [SerializeField] private CartController cartController;
-    [SerializeField] private Animator[] animators;
+    
+    [Header("Animators")]
+    [SerializeField] private Animator[] charactersAnimators;
+    [SerializeField] private Animator cartAnimator;
+    
     private InputProvider[] inputProviders = new InputProvider[2];
     
     private int playerIndexTurn = 0;
@@ -16,7 +21,6 @@ public class PlayersController : MonoBehaviour
 
     public void Update()
     {
-        
         if ((inputProviders[0] != null) && (inputProviders[1] != null))
         {
             // int lean inputs
@@ -31,19 +35,22 @@ public class PlayersController : MonoBehaviour
                 cartController.Lean(0);
             }
 
+            cartAnimator.SetInteger("LeanDirection", cartController.LeanDirection);
+            
             // lean animation
-            animators[0].SetFloat("PUSH_PULL", inputProviders[0].getLeanValue());
-            animators[1].SetFloat("PUSH_PULL", inputProviders[1].getLeanValue());
+            charactersAnimators[0].SetFloat("PUSH_PULL", inputProviders[0].getLeanValue());
+            charactersAnimators[1].SetFloat("PUSH_PULL", inputProviders[1].getLeanValue());
         }
 
         // HIGH LOW animation
         // Debug.Log(playerIndexTurn);
+        // TODO : Demander à Lucas pourquoi y'a un *4 ici
         if (playerIndexTurn == 1) pumpEquilibrium += Time.deltaTime * 4;
         else if (playerIndexTurn == 0) pumpEquilibrium -= Time.deltaTime * 4;
         pumpEquilibrium = Mathf.Clamp01(pumpEquilibrium);
 
-        animators[0].SetFloat("HIGH_LOW", 1-pumpEquilibrium);
-        animators[1].SetFloat("HIGH_LOW", pumpEquilibrium);
+        charactersAnimators[0].SetFloat("HIGH_LOW", 1-pumpEquilibrium);
+        charactersAnimators[1].SetFloat("HIGH_LOW", pumpEquilibrium);
     }
     public void Pump(int playerIndex)
     {
@@ -64,6 +71,8 @@ public class PlayersController : MonoBehaviour
     {
         // alternate between 0 and 1
         playerIndexTurn = (playerIndexTurn + 1) % 2;
+        cartAnimator.SetInteger("playerIndexTurn", playerIndexTurn);
+
         if (playerIndexTurn == 0)
         {
             hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.Left, false);

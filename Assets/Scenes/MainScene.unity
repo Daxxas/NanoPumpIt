@@ -600,6 +600,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &612295273 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4546876128747194797, guid: f4f77f7017a78404fbd97693ab351ecd,
+    type: 3}
+  m_PrefabInstance: {fileID: 910500210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4757e495e6404f3bbabfbc7de4187bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &684281151
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +756,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 988646532}
     - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
         type: 3}
       propertyPath: onSlide.m_PersistentCalls.m_Calls.Array.size
@@ -1084,7 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInputManager: {fileID: 1276036981}
-  playersController: {fileID: 0}
+  playersController: {fileID: 612295273}
 --- !u!1 &1431984220
 GameObject:
   m_ObjectHideFlags: 0

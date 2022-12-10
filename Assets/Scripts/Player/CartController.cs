@@ -33,8 +33,9 @@ public class CartController : MonoBehaviour
     [SerializeField] private float cartSpeed = 0f;
     private float rampCoef = 1f;
 
-    private int leanState = 0;
-    
+    private int leanDirection = 0;
+    public int LeanDirection => leanDirection;
+
     public float CartSpeed
     {
         get => cartSpeed;
@@ -97,7 +98,7 @@ public class CartController : MonoBehaviour
     }
     public void Lean(int direction)
     {
-        if (direction != leanState)
+        if (direction != leanDirection)
         {
             SetLeanState(direction);
         }
@@ -125,7 +126,7 @@ public class CartController : MonoBehaviour
 
         }
         
-        leanState = direction;
-        graphicsObject.transform.localEulerAngles = new Vector3(-40 * direction, 0,0);
+        leanDirection = direction;
+        // graphicsObject.transform.localEulerAngles = new Vector3(-40 * direction, 0,0);
     }
 }
