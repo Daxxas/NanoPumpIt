@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581390792304410273}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.507, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4546876128747194795}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &4546876128279251036
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,8 +75,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.27688056, y: 0.55681324, z: 0.52144873}
-  m_Center: {x: 0, y: 0.106502175, z: 0.031675756}
+  m_Size: {x: 0.36441183, y: 1.1389427, z: 0.82165104}
+  m_Center: {x: -0.043765683, y: 0.39755702, z: -0.11842526}
 --- !u!114 &4546876128279251035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,12 +193,40 @@ MonoBehaviour:
   cartDeccelerationRate: 0.01
   accelerationCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: -50
+      value: -1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.00019574177
+      outSlope: -0.00019574177
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.10531054
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 50
+      value: 2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotationOffset: {x: -0.49987787, y: 0.5001221, z: -0.49987787, w: -0.5001221}
   cartSpeed: 0
+  currentRampDegree: 0
 --- !u!114 &4546876128747194797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,12 +242,70 @@ MonoBehaviour:
   hitboxManager: {fileID: 4546876128747194798}
   cartController: {fileID: 4546876128747194796}
   playerInputsHolder: {fileID: 0}
+  pumpAnimation: {fileID: 7400000, guid: b09cb97a08ca53448a1bb59d14bd9539, type: 2}
   charactersAnimators:
   - {fileID: 4546876129800933231}
   - {fileID: 4546876129313000168}
   cartAnimator: {fileID: 4523724305162183490}
-  pumpAnimation: {fileID: 7400000, guid: b09cb97a08ca53448a1bb59d14bd9539, type: 2}
-  minPumpTime: 0.1
+  minPumpTime: 0.5
+  minPumpTimeDegreeMultiplierCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -50
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.00019574177
+      outSlope: -0.00019574177
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.10531054
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 50
+      value: 2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  minPumpTimeSpeedMultiplierCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 10
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  currentMinPumpTime: 0
 --- !u!114 &4546876128747194798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,8 +520,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.27688056, y: 0.55681324, z: 0.52144873}
-  m_Center: {x: 0, y: 0.106502175, z: 0.031675756}
+  m_Size: {x: 0.36441183, y: 1.1389427, z: 0.82165104}
+  m_Center: {x: -0.043765683, y: 0.39755702, z: -0.11842526}
 --- !u!114 &4546876129661408488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,7 +563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4546876129664789013}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.060000002, y: 0.404, z: 0.724}
+  m_LocalPosition: {x: 0.060000002, y: 0.18, z: 0.724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -495,8 +581,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5420629, y: 0.061399877, z: 0.52144873}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.38541996, y: 0.7046199, z: 1.0454339}
+  m_Center: {x: -9.130868e-10, y: -0.3216066, z: -0.26199228}
 --- !u!114 &4546876129664789012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,7 +775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4546876130049463200}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.060000002, y: 0.404, z: -0.58700013}
+  m_LocalPosition: {x: 0.060000002, y: 0.18, z: -0.58700013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -707,8 +793,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5420629, y: 0.061399877, z: 0.52144873}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.38541996, y: 0.7046199, z: 1.0454339}
+  m_Center: {x: -9.130868e-10, y: -0.3216066, z: -0.26199228}
 --- !u!114 &4546876130049463215
 MonoBehaviour:
   m_ObjectHideFlags: 0

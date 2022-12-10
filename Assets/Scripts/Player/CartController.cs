@@ -25,7 +25,7 @@ public class CartController : MonoBehaviour
     [SerializeField] private float cartMinSpeed = 1f;
     [SerializeField] private float cartMaxSpeed = 5f;
     [SerializeField] private float cartPumpAcceleration = 0.2f;
-    [SerializeField] private float cartDeccelerationRate = 0.1f;
+    [SerializeField] [Tooltip("In speed/s (speed is reduced by X every second)")] private float cartDeccelerationRate = 0.1f;
 
     [Header("Ramps Acceleration")] 
     [SerializeField] private AnimationCurve accelerationCurve;
@@ -36,7 +36,10 @@ public class CartController : MonoBehaviour
 
     [Header("Display info")]
     [SerializeField] private float cartSpeed = 0f;
+    [SerializeField] private float currentRampDegree = 0f;
+    
     private float rampCoef = 1f;
+    public float CurrentRampDegree => currentRampDegree;
 
     private int leanDirection = 0;
     public int LeanDirection => leanDirection;
@@ -115,9 +118,9 @@ public class CartController : MonoBehaviour
         float angleAtDistance = Vector3.Angle(-Vector3.up, directionAtPos);
 
         // offset angle so there's negative value for down ramp
-        float rampDegree = angleAtDistance - 90f;
+        currentRampDegree = angleAtDistance - 90f;
         
-        rampCoef = accelerationCurve.Evaluate(rampDegree);
+        rampCoef = accelerationCurve.Evaluate(currentRampDegree);
         // Debug.Log(rampDegree + " " + rampCoef);
     }
     public void Lean(int direction)

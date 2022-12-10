@@ -8,28 +8,29 @@ public class PumpController : MonoBehaviour
     [SerializeField] private HitboxManager hitboxManager;
     [SerializeField] private CartController cartController;
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
+    [SerializeField] private AnimationClip pumpAnimation;
 
     [Header("Animators")]
     [SerializeField] private Animator[] charactersAnimators;
     [SerializeField] private Animator cartAnimator;
 
     [Header("Pump Settings")] 
-    [SerializeField] private AnimationClip pumpAnimation;
     [SerializeField] private float minPumpTime = 0.1f;
+    [SerializeField] private AnimationCurve minPumpTimeDegreeMultiplierCurve;
+    [SerializeField] private AnimationCurve minPumpTimeSpeedMultiplierCurve;
+
+    [Header("Display Info")]
+    [SerializeField] private float currentMinPumpTime = 0f;
     
     private float lastPumpTime;
     
     private int playerIndexTurn = 0;
     private float pumpEquilibrium = 1f;
 
-    private void Start()
-    {
-        float pumpAnimationSpeedModifier = pumpAnimation.length / minPumpTime;
-        cartAnimator.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
-    }
-
     public void Update()
     {
+        UpdatePumpMinTime();
+        
         // HIGH LOW animation
         // Debug.Log(playerIndexTurn);
         // TODO : Demander à Lucas pourquoi y'a un *4 ici
@@ -40,11 +41,20 @@ public class PumpController : MonoBehaviour
         charactersAnimators[0].SetFloat("HIGH_LOW", 1-pumpEquilibrium);
         charactersAnimators[1].SetFloat("HIGH_LOW", pumpEquilibrium);
     }
+
+    private void UpdatePumpMinTime()
+    {
+        currentMinPumpTime = minPumpTime * minPumpTimeSpeedMultiplierCurve.Evaluate(cartController.CartSpeed) * minPumpTimeDegreeMultiplierCurve.Evaluate(cartController.CurrentRampDegree);
+        
+        float pumpAnimationSpeedModifier = pumpAnimation.length / minPumpTime;
+        cartAnimator.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
+    }
+    
     public void Pump(int playerIndex)
     {
         if (playerIndex == playerIndexTurn)
         {
-            if (minPumpTime > Time.time - lastPumpTime)
+            if (currentMinPumpTime > Time.time - lastPumpTime)
             {
                 Debug.Log("Pump too fast !");
                 return;
