@@ -248,6 +248,7 @@ MonoBehaviour:
   - {fileID: 4546876129313000168}
   cartAnimator: {fileID: 4523724305162183490}
   minPumpTime: 0.5
+  pumpInterruptionPercent: 95
   minPumpTimeDegreeMultiplierCurve:
     serializedVersion: 2
     m_Curve:

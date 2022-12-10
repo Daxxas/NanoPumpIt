@@ -16,6 +16,7 @@ public class PumpController : MonoBehaviour
 
     [Header("Pump Settings")] 
     [SerializeField] private float minPumpTime = 0.1f;
+    [SerializeField] [Range(0, 100f)] private float pumpInterruptionPercent = 95f;
     [SerializeField] private AnimationCurve minPumpTimeDegreeMultiplierCurve;
     [SerializeField] private AnimationCurve minPumpTimeSpeedMultiplierCurve;
 
@@ -54,7 +55,7 @@ public class PumpController : MonoBehaviour
     {
         if (playerIndex == playerIndexTurn)
         {
-            if (currentMinPumpTime > Time.time - lastPumpTime)
+            if (currentMinPumpTime * (pumpInterruptionPercent / 100) > Time.time - lastPumpTime)
             {
                 Debug.Log("Pump too fast !");
                 return;
