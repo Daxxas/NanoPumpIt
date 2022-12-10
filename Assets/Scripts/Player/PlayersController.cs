@@ -26,6 +26,10 @@ public class PlayersController : MonoBehaviour
             // int lean inputs
             int leanDir0 = inputProviders[0].getLeanDirection();
             int leanDir1 = inputProviders[1].getLeanDirection();
+            
+            // Debug.Log("LeanValue P1 : " + leanDir0 + " LeanValue P2 : " + leanDir1);
+
+            
             if ((leanDir0 == leanDir1) && (leanDir0 != 0))
             {
                 cartController.Lean(leanDir0);
@@ -36,6 +40,7 @@ public class PlayersController : MonoBehaviour
             }
 
             cartAnimator.SetInteger("LeanDirection", cartController.LeanDirection);
+
             
             // lean animation
             charactersAnimators[0].SetFloat("PUSH_PULL", inputProviders[0].getLeanValue());
