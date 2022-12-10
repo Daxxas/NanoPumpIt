@@ -12,9 +12,22 @@ public class PumpController : MonoBehaviour
     [Header("Animators")]
     [SerializeField] private Animator[] charactersAnimators;
     [SerializeField] private Animator cartAnimator;
+
+    [Header("Pump Settings")] 
+    [SerializeField] private AnimationClip pumpAnimation;
+    [SerializeField] private float minPumpTime = 0.1f;
+    
+    private float lastPumpTime;
     
     private int playerIndexTurn = 0;
     private float pumpEquilibrium = 1f;
+
+    private void Start()
+    {
+        float pumpAnimationSpeedModifier = pumpAnimation.length / minPumpTime;
+        Debug.Log("Speed Modifier: " + pumpAnimationSpeedModifier);
+        cartAnimator.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
+    }
 
     public void Update()
     {
@@ -32,6 +45,14 @@ public class PumpController : MonoBehaviour
     {
         if (playerIndex == playerIndexTurn)
         {
+            if (minPumpTime > Time.time - lastPumpTime)
+            {
+                Debug.Log("Pump too fast !");
+                return;
+            }
+            
+            lastPumpTime = Time.time;
+            
             SwitchPlayerIndex();
             cartController.AccelerateCart();
         }

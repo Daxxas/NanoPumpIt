@@ -274,6 +274,11 @@ MonoBehaviour:
   onSlide:
     m_PersistentCalls:
       m_Calls: []
+  playerInputsHolder: {fileID: 0}
+  charactersAnimators:
+  - {fileID: 4546876129800933231}
+  - {fileID: 4546876129313000168}
+  cartAnimator: {fileID: 4523724305162183490}
   cartMinSpeed: 1
   cartMaxSpeed: 5
   cartPumpAcceleration: 0.2
@@ -299,12 +304,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitboxManager: {fileID: 4546876128747194798}
-  playerInputManager: {fileID: 0}
   cartController: {fileID: 4546876128747194796}
+  playerInputsHolder: {fileID: 0}
   charactersAnimators:
   - {fileID: 4546876129800933231}
   - {fileID: 4546876129313000168}
   cartAnimator: {fileID: 4523724305162183490}
+  pumpAnimation: {fileID: 7400000, guid: b09cb97a08ca53448a1bb59d14bd9539, type: 2}
+  minPumpTime: 0.1
 --- !u!114 &4546876128747194798
 MonoBehaviour:
   m_ObjectHideFlags: 0
