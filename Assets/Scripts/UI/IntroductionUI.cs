@@ -42,11 +42,6 @@ public class IntroductionUI : MonoBehaviour
     private void CheckFadeOut()
     {
         pumpCount++;
-        if (pumpCount == 1)
-        {
-            highscoreBoard.HideBoard();
-        }
-        
         if (pumpCount >= pumpCountBeforeFadeOut)
         {
             fadeOut.PlayFeedbacks();

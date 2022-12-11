@@ -43,6 +43,8 @@ public class CartController : MonoBehaviour
     [Header("Display info")]
     [SerializeField] private float cartSpeed = 0f;
     [SerializeField] private float currentRampDegree = 0f;
+
+    public bool canMove = true;
     
     private float rampCoef = 1f;
     public float CurrentRampDegree => currentRampDegree;
@@ -114,8 +116,12 @@ public class CartController : MonoBehaviour
             charactersAnimators[0].SetFloat("PUSH_PULL", playerInputsHolder.InputProviders[0].getLeanValue());
             charactersAnimators[1].SetFloat("PUSH_PULL", playerInputsHolder.InputProviders[1].getLeanValue());
         }
+
+        if (canMove)
+        {
+            distanceTravelled += Time.deltaTime * cartSpeed;
+        }
         
-        distanceTravelled += Time.deltaTime * cartSpeed;
         transform.position = path.path.GetPointAtDistance(distanceTravelled);
         transform.rotation = path.path.GetRotationAtDistance(distanceTravelled) * rotationOffset;
 
