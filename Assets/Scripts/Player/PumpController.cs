@@ -42,8 +42,6 @@ public class PumpController : MonoBehaviour
         UpdatePumpMinTime();
 
         canPump = Time.time - lastPumpTime >= currentMinPumpTime * (pumpInterruptionPercent / 100);
-
-        Debug.Log(canPump);
         
         // HIGH LOW animation
         // Debug.Log(playerIndexTurn);
