@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class HitboxManager : MonoBehaviour
 {
-    public Action onHit;
+    public UnityEvent<Vector3> onHit;
     
     public enum Hitbox
     {
@@ -23,7 +24,7 @@ public class HitboxManager : MonoBehaviour
     {
         foreach (var playerHitbox in playerHitboxes)
         {
-            playerHitbox.onHit += () => onHit?.Invoke();
+            playerHitbox.onHit += v => onHit?.Invoke(v);
         }
     }
 

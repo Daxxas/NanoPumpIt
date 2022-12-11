@@ -37,6 +37,9 @@ public class CartController : MonoBehaviour
     [SerializeField] private UnityEvent onCartLean;
     [SerializeField] private UnityEvent onCartLeanStop;
 
+    public UnityEvent OnCartLean => onCartLean;
+    public UnityEvent OnCartLeanStop => onCartLeanStop;
+
     [Header("Display info")]
     [SerializeField] private float cartSpeed = 0f;
     [SerializeField] private float currentRampDegree = 0f;
@@ -60,7 +63,7 @@ public class CartController : MonoBehaviour
 
     private void Awake()
     {
-        hitboxManager.onHit += DeccelerateCart;
+        hitboxManager.onHit.AddListener(v => DeccelerateCart());
     }
 
     public void DeccelerateCart()
@@ -141,6 +144,8 @@ public class CartController : MonoBehaviour
         hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.DownRight, true);
         hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.DownLeft, true);
         
+        leanDirection = direction;
+        
         if (direction == -1)
         {
             // Leaning to left, disable left hibox
@@ -152,14 +157,12 @@ public class CartController : MonoBehaviour
             // Leaning to right, disable left hibox
             hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.DownLeft, false);
             onCartLean?.Invoke();
-
         }
         else
         {
             onCartLeanStop?.Invoke();
         }
         
-        leanDirection = direction;
         // graphicsObject.transform.localEulerAngles = new Vector3(-40 * direction, 0,0);
     }
 }
