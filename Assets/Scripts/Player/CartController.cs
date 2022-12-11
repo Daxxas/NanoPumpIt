@@ -14,7 +14,6 @@ public class CartController : MonoBehaviour
     [SerializeField] private Transform graphicsObject;
     [SerializeField] private PathCreator path;
     [SerializeField] private HitboxManager hitboxManager;
-    [SerializeField] private UnityEvent onSlide;
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
     
     [Header("Animators")]
@@ -33,6 +32,9 @@ public class CartController : MonoBehaviour
     [Header("Others")]
     [SerializeField] private Quaternion rotationOffset = Quaternion.identity;
     private float distanceTravelled = 0f;
+
+    [Header("Events")] 
+    private UnityEvent onCartLean;
 
     [Header("Display info")]
     [SerializeField] private float cartSpeed = 0f;
@@ -142,13 +144,13 @@ public class CartController : MonoBehaviour
         {
             // Leaning to left, disable left hibox
             hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.DownRight, false);
-            onSlide?.Invoke();
+            onCartLean?.Invoke();
         }
         else if (direction == 1)
         {
             // Leaning to right, disable left hibox
             hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.DownLeft, false);
-            onSlide?.Invoke();
+            onCartLean?.Invoke();
 
         }
         
