@@ -9,6 +9,7 @@ public class CartVFX : MonoBehaviour
     [SerializeField] private List<ParticleSystem> leanLeft;
     [SerializeField] private List<ParticleSystem> leanRight;
     [SerializeField] private ParticleSystem speed;
+    [SerializeField] private GameObject hitVFX;
 
     [Header("References")] 
     [SerializeField] private CartController cartController;
@@ -25,6 +26,11 @@ public class CartVFX : MonoBehaviour
     private void Update()
     {
         SpeedVFX();
+    }
+
+    public void HitVFX(Vector3 position)
+    {
+        Instantiate(hitVFX, position, Quaternion.identity);
     }
     
     private void LeanVFX()

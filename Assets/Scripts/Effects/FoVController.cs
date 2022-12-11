@@ -15,6 +15,11 @@ public class FoVController : MonoBehaviour
     
     private float currentFOV;
 
+    private void Start()
+    {
+        currentFOV = minFOV;
+    }
+
     private void Update()
     {
         float fovDelta = maxFOV - minFOV;
