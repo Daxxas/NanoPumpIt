@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PumpController : MonoBehaviour
@@ -19,6 +20,9 @@ public class PumpController : MonoBehaviour
     [SerializeField] [Range(0, 100f)] private float pumpInterruptionPercent = 95f;
     [SerializeField] private AnimationCurve minPumpTimeDegreeMultiplierCurve;
     [SerializeField] private AnimationCurve minPumpTimeSpeedMultiplierCurve;
+
+    [Header("Events")] 
+    [SerializeField] private UnityEvent onPump;
 
     [Header("Display Info")]
     [SerializeField] private float currentMinPumpTime = 0f;
@@ -63,6 +67,7 @@ public class PumpController : MonoBehaviour
             
             lastPumpTime = Time.time;
             
+            onPump?.Invoke();
             SwitchPlayerIndex();
             cartController.AccelerateCart();
         }

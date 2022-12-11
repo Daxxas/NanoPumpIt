@@ -34,7 +34,8 @@ public class CartController : MonoBehaviour
     private float distanceTravelled = 0f;
 
     [Header("Events")] 
-    private UnityEvent onCartLean;
+    [SerializeField] private UnityEvent onCartLean;
+    [SerializeField] private UnityEvent onCartLeanStop;
 
     [Header("Display info")]
     [SerializeField] private float cartSpeed = 0f;
@@ -152,6 +153,10 @@ public class CartController : MonoBehaviour
             hitboxManager.SetActiveHitbox((int) HitboxManager.Hitbox.DownLeft, false);
             onCartLean?.Invoke();
 
+        }
+        else
+        {
+            onCartLeanStop?.Invoke();
         }
         
         leanDirection = direction;
