@@ -23,18 +23,27 @@ public class PumpController : MonoBehaviour
 
     [Header("Events")] 
     [SerializeField] private UnityEvent onPump;
+    public UnityEvent OnPump => onPump;
 
     [Header("Display Info")]
     [SerializeField] private float currentMinPumpTime = 0f;
-    
+
+    private bool canPump = false;
+    public bool CanPump => canPump;
+
     private float lastPumpTime;
     
     private int playerIndexTurn = 0;
+    public int PlayerIndexTurn => playerIndexTurn;
     private float pumpEquilibrium = 1f;
 
     public void Update()
     {
         UpdatePumpMinTime();
+
+        canPump = Time.time - lastPumpTime >= currentMinPumpTime * (pumpInterruptionPercent / 100);
+
+        Debug.Log(canPump);
         
         // HIGH LOW animation
         // Debug.Log(playerIndexTurn);
@@ -59,7 +68,7 @@ public class PumpController : MonoBehaviour
     {
         if (playerIndex == playerIndexTurn)
         {
-            if (currentMinPumpTime * (pumpInterruptionPercent / 100) > Time.time - lastPumpTime)
+            if (!canPump)
             {
                 Debug.Log("Pump too fast !");
                 return;

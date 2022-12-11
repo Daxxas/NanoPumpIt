@@ -8,6 +8,13 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private GameManager gameState;
 
+    
+    
+    // TODO : Je suis pas sûr de l'orga du code pour le timer 
+    // TODO si tu vois ce commentaire et qu'on en a pas parlé c'est que j'ai oublié de venir t'en parler
+    
+    
+    
     // Update is called once per frame
     void Update()
     {
