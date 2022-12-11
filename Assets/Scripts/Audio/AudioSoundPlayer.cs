@@ -19,16 +19,17 @@ public class AudioSoundPlayer : MonoBehaviour
        }
    }
 
+   // Setup instance
    private void SetupSoundInstance()
    {
        soundInstance = FMODUnity.RuntimeManager.CreateInstance(soundRef);
    }
-
+   
    public void PlaySoundOneShot()
     {
         FMODUnity.RuntimeManager.PlayOneShot(soundRef);
     }
-
+   
     public void StartSoundLoop()
     {
         soundInstance.start();
