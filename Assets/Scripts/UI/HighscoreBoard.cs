@@ -44,15 +44,15 @@ public class HighscoreBoard : MonoBehaviour
         }
     }
 
-    [ContextMenu("Show")]
+    [ContextMenu("Hide")]
     public void HideBoard()
     {
-        showFeedback.PlayFeedbacks();
+        hideFeedback.PlayFeedbacks();
     }
 
-    [ContextMenu("Hide")]
+    [ContextMenu("Show")]
     public void ShowBoard()
     {
-        hideFeedback.PlayFeedbacks();
+        showFeedback.PlayFeedbacks();
     }
 }

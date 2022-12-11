@@ -8,6 +8,7 @@ public class IntroductionUI : MonoBehaviour
 {
     [Header("References")] 
     [SerializeField] private PumpController pumpController;
+    [SerializeField] private HighscoreBoard highscoreBoard;
     [SerializeField] private Image[] pumpIndicators;
     [SerializeField] private Sprite pumpOn;
     [SerializeField] private Sprite pumpOff;
@@ -41,6 +42,11 @@ public class IntroductionUI : MonoBehaviour
     private void CheckFadeOut()
     {
         pumpCount++;
+        if (pumpCount == 1)
+        {
+            highscoreBoard.HideBoard();
+        }
+        
         if (pumpCount >= pumpCountBeforeFadeOut)
         {
             fadeOut.PlayFeedbacks();
