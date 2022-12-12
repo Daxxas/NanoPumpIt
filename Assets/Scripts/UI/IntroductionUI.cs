@@ -21,7 +21,7 @@ public class IntroductionUI : MonoBehaviour
     
     private void Start()
     {
-        pumpController.OnPump.AddListener(CheckFadeOut);
+        pumpController.onPump.AddListener(CheckFadeOut);
     }
 
     private void Update()

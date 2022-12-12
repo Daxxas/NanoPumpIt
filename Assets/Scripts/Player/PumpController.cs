@@ -20,10 +20,13 @@ public class PumpController : MonoBehaviour
     [SerializeField] [Range(0, 100f)] private float pumpInterruptionPercent = 95f;
     [SerializeField] private AnimationCurve minPumpTimeDegreeMultiplierCurve;
     [SerializeField] private AnimationCurve minPumpTimeSpeedMultiplierCurve;
+    [SerializeField] private float pumpTooFast = .1f;
+    [SerializeField] private float pumpWrongTurn = .1f;
 
     [Header("Events")] 
-    [SerializeField] private UnityEvent onPump;
-    public UnityEvent OnPump => onPump;
+    [SerializeField] public UnityEvent onPump;
+    [SerializeField] public UnityEvent onWrongPump;
+    [SerializeField] public UnityEvent onPumpTooFast;
 
     [Header("Display Info")]
     [SerializeField] private float currentMinPumpTime = 0f;
@@ -70,6 +73,8 @@ public class PumpController : MonoBehaviour
             if (!canPump)
             {
                 Debug.Log("Pump too fast !");
+                onPumpTooFast?.Invoke();
+                cartController.CartSpeed -= pumpTooFast;
                 return;
             }
             
@@ -84,6 +89,8 @@ public class PumpController : MonoBehaviour
         {
             // Player who pressed pump button is not the one who should pump
             Debug.Log("Wrong pump !");
+            onWrongPump?.Invoke();
+            cartController.CartSpeed -= pumpWrongTurn;
         }
     
     }

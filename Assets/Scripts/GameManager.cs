@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        pumpController.OnPump.AddListener(StartGame);
+        pumpController.onPump.AddListener(StartGame);
     }
 
     private void StartGame()
