@@ -17,7 +17,7 @@ public class HighscoreEntryUI : MonoBehaviour
     {
         // Convert float time to display string
         var ts = TimeSpan.FromSeconds(time);
-        string text =string.Format("{0:00}:{1:00},{2:000}", ts.Minutes, ts.Seconds, ts.Milliseconds);
+        string text =string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds);
 
         return text;
     }
