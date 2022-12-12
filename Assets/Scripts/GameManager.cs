@@ -5,6 +5,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager instance;
+    public static GameManager Instance => instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+            Destroy(instance.gameObject);
+        instance = this;
+        
+        DontDestroyOnLoad(this.gameObject);
+    }
+    
     public enum GameState
     {
         Menu,
@@ -38,8 +50,13 @@ public class GameManager : MonoBehaviour
 
     public void StopGame()
     {
-        gameState = GameState.End;
         // Logic when the game ends
+        if (gameState != GameState.End)
+        {
+            gameState = GameState.End;
+            
+            
+        }
     }
 
     public void ResetGame()

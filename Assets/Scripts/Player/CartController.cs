@@ -28,8 +28,9 @@ public class CartController : MonoBehaviour
 
     [Header("Ramps Acceleration")] 
     [SerializeField] private AnimationCurve accelerationCurve;
-    
-    [Header("Others")]
+
+    [Header("Others")] 
+    [SerializeField] private float finishDistanceFromEnd = 5f;
     [SerializeField] private Quaternion rotationOffset = Quaternion.identity;
     private float distanceTravelled = 0f;
 
@@ -121,7 +122,7 @@ public class CartController : MonoBehaviour
         {
             distanceTravelled += Time.deltaTime * cartSpeed;
         }
-        
+
         transform.position = path.path.GetPointAtDistance(distanceTravelled);
         transform.rotation = path.path.GetRotationAtDistance(distanceTravelled) * rotationOffset;
 
@@ -171,4 +172,18 @@ public class CartController : MonoBehaviour
         
         // graphicsObject.transform.localEulerAngles = new Vector3(-40 * direction, 0,0);
     }
+
+    private void HasReachedEnd()
+    {
+        float endLength = path.path.length - finishDistanceFromEnd;
+        
+    }
+
+    #if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        float endLength = path.path.length - finishDistanceFromEnd;
+        Gizmos.DrawCube(path.path.GetPointAtDistance(endLength), Vector3.one * 3f); 
+    }
+    #endif
 }

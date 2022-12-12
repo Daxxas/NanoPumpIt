@@ -1451,6 +1451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pumpController: {fileID: 0}
+  highscoreBoard: {fileID: 0}
   pumpIndicators:
   - {fileID: 5359974487908654925}
   - {fileID: 5359974486943994425}
