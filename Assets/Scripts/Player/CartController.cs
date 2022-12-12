@@ -33,6 +33,7 @@ public class CartController : MonoBehaviour
     [SerializeField] private float finishDistanceFromEnd = 5f;
     [SerializeField] private Quaternion rotationOffset = Quaternion.identity;
     private float distanceTravelled = 0f;
+    public float DistanceTravelled => distanceTravelled;
 
     [Header("Events")] 
     [SerializeField] private UnityEvent onCartLean;
