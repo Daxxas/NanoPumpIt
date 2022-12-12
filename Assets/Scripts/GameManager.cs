@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
         End
     }
 
+    public enum EndCondition
+    {
+        Win,
+        Lose
+    }
+
     [Header("References")] 
     [SerializeField] private PumpController pumpController;
     [SerializeField] private CartController cartController;
@@ -50,14 +56,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StopGame()
+    public void StopGame(EndCondition endCondition)
     {
         // Logic when the game ends
         if (gameState != GameState.End)
         {
             gameState = GameState.End;
-            
-            
+
+            if (endCondition == EndCondition.Lose)
+            {
+                cartController.canMove = false;
+            }
+            else if (endCondition == EndCondition.Win)
+            {
+                // Save time 
+            }
         }
     }
 
