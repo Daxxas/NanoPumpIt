@@ -121,6 +121,13 @@ public class CartController : MonoBehaviour
         if (canMove)
         {
             distanceTravelled += Time.deltaTime * cartSpeed;
+            
+            // Prevent cart from going too far
+            if (distanceTravelled >= path.path.length)
+            {
+                distanceTravelled = path.path.length;
+                canMove = false;
+            }
         }
 
         transform.position = path.path.GetPointAtDistance(distanceTravelled);
@@ -176,6 +183,10 @@ public class CartController : MonoBehaviour
     private void HasReachedEnd()
     {
         float endLength = path.path.length - finishDistanceFromEnd;
+        if (distanceTravelled > endLength)
+        {
+            GameManager.Instance.StopGame(GameManager.EndCondition.Win);
+        }
         
     }
 
@@ -183,7 +194,7 @@ public class CartController : MonoBehaviour
     private void OnDrawGizmos()
     {
         float endLength = path.path.length - finishDistanceFromEnd;
-        Gizmos.DrawCube(path.path.GetPointAtDistance(endLength), Vector3.one * 3f); 
+        Gizmos.DrawCube(path.path.GetPointAtDistance(endLength), Vector3.one * 1f); 
     }
     #endif
 }

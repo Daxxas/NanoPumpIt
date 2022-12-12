@@ -24,12 +24,19 @@ public class GameManager : MonoBehaviour
         End
     }
 
+    public enum EndCondition
+    {
+        Win,
+        Lose
+    }
+
     [Header("References")] 
     [SerializeField] private PumpController pumpController;
     [SerializeField] private CartController cartController;
     [SerializeField] private HighscoreBoard highscoreBoard;
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
-    
+    [SerializeField] private Timer timer;
+
     [SerializeField] private GameState gameState;
 
     private void Start()
@@ -43,19 +50,27 @@ public class GameManager : MonoBehaviour
         if (gameState == GameState.Menu && playerInputsHolder.InputProviders[0] != null && playerInputsHolder.InputProviders[1] != null)
         {
             gameState = GameState.Gameplay;
+
             cartController.canMove = true;
             highscoreBoard.HideBoard();
         }
     }
 
-    public void StopGame()
+    public void StopGame(EndCondition endCondition)
     {
         // Logic when the game ends
         if (gameState != GameState.End)
         {
             gameState = GameState.End;
-            
-            
+
+            if (endCondition == EndCondition.Lose)
+            {
+                cartController.canMove = false;
+            }
+            else if (endCondition == EndCondition.Win)
+            {
+                // Save time 
+            }
         }
     }
 
@@ -65,15 +80,8 @@ public class GameManager : MonoBehaviour
         // Logic to restart the game
     }
     
-    
-    private float time = 60 * 3;
-    
-    public float GetTime()
-    { return time; }
-    
     // Update is called once per frame
     void Update()
     {
-        time -= Mathf.Max(Time.deltaTime,0);
     }
 }
