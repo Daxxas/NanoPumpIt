@@ -37,16 +37,22 @@ public class CartController : MonoBehaviour
     [Header("Events")] 
     [SerializeField] private UnityEvent onCartLean;
     [SerializeField] private UnityEvent onCartLeanStop;
+    [SerializeField] private UnityEvent onCartReachEnd;
 
     public UnityEvent OnCartLean => onCartLean;
     public UnityEvent OnCartLeanStop => onCartLeanStop;
 
+    public UnityEvent OnCartReachEnd => onCartReachEnd;
+
     [Header("Display info")]
     [SerializeField] private float cartSpeed = 0f;
     [SerializeField] private float currentRampDegree = 0f;
-
+    
     public bool canMove = true;
     
+    private bool hasCartReachedEnd = false;
+    public bool HasCartReachedEnd => hasCartReachedEnd;
+
     private float rampCoef = 1f;
     public float CurrentRampDegree => currentRampDegree;
 
@@ -111,7 +117,6 @@ public class CartController : MonoBehaviour
             }
 
             cartAnimator.SetInteger("LeanDirection", LeanDirection);
-
             
             // lean animation
             charactersAnimators[0].SetFloat("PUSH_PULL", playerInputsHolder.InputProviders[0].getLeanValue());
@@ -122,10 +127,16 @@ public class CartController : MonoBehaviour
         {
             distanceTravelled += Time.deltaTime * cartSpeed;
             
+            if(distanceTravelled >= path.path.length - finishDistanceFromEnd && !hasCartReachedEnd)
+            {
+                hasCartReachedEnd = true;
+                OnCartReachEnd.Invoke();
+            }
+            
             // Prevent cart from going too far
             if (distanceTravelled >= path.path.length)
             {
-                distanceTravelled = path.path.length;
+                distanceTravelled = path.path.length-0.01f; // -0.01f to prevent cart from going back to the beginning
                 canMove = false;
             }
         }
@@ -193,8 +204,11 @@ public class CartController : MonoBehaviour
     #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        float endLength = path.path.length - finishDistanceFromEnd;
-        Gizmos.DrawCube(path.path.GetPointAtDistance(endLength), Vector3.one * 1f); 
+        if (path != null)
+        {
+            float endLength = path.path.length - finishDistanceFromEnd;
+            Gizmos.DrawCube(path.path.GetPointAtDistance(endLength), Vector3.one * 1f);
+        }
     }
     #endif
 }

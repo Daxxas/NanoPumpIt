@@ -68,6 +68,8 @@ public class PumpController : MonoBehaviour
     
     public void Pump(int playerIndex)
     {
+        if(cartController.HasCartReachedEnd) return;
+        
         if (playerIndex == playerIndexTurn)
         {
             if (!canPump)

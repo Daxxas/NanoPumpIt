@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PumpController pumpController;
     [SerializeField] private CartController cartController;
     [SerializeField] private HighscoreBoard highscoreBoard;
+    [SerializeField] private EndingUI endingUI;
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
     [SerializeField] private Timer timer;
 
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         pumpController.onPump.AddListener(StartGame);
+        cartController.OnCartReachEnd.AddListener( () => StopGame(EndCondition.Win));
     }
 
     private void StartGame()
@@ -53,31 +56,46 @@ public class GameManager : MonoBehaviour
 
             cartController.canMove = true;
             highscoreBoard.HideBoard();
+            timer.Play();
         }
     }
 
     public void StopGame(EndCondition endCondition)
     {
+        Debug.Log("Stop game !");
         // Logic when the game ends
         if (gameState != GameState.End)
         {
             gameState = GameState.End;
+            timer.Pause();
+            playerInputsHolder.InputProviders[0].onPump +=  i => ResetGame();
+            playerInputsHolder.InputProviders[1].onPump +=  i => ResetGame();
 
+            
+            
             if (endCondition == EndCondition.Lose)
             {
                 cartController.canMove = false;
+                endingUI.DisplayLose();
             }
             else if (endCondition == EndCondition.Win)
             {
-                // Save time 
+                // Save time
+                endingUI.DisplayWin();
             }
         }
     }
 
     public void ResetGame()
     {
-        gameState = GameState.Menu;
-        // Logic to restart the game
+        Debug.Log("Reset Game");
+        if (gameState == GameState.End)
+        {
+            playerInputsHolder.InputProviders[0].onPump -=  i => ResetGame();
+            playerInputsHolder.InputProviders[1].onPump -=  i => ResetGame();
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
     
     // Update is called once per frame
