@@ -235,7 +235,8 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 429769c904c2e904d88ff2af6afbfdaf, type: 2}
+    m_Motion: {fileID: 3060872287085348379, guid: a5949da334271124383f6ecec9c4870f,
+      type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -243,7 +244,8 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 26937a73934b0a4448e16ddab5a92441, type: 2}
+    m_Motion: {fileID: -998496362607748373, guid: a5949da334271124383f6ecec9c4870f,
+      type: 3}
     m_Threshold: 0.22222224
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -251,7 +253,8 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 6a4a4f7b2c422e64ebf6fe651327233b, type: 2}
+    m_Motion: {fileID: -5059006814000262888, guid: a5949da334271124383f6ecec9c4870f,
+      type: 3}
     m_Threshold: 0.44444448
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -259,7 +262,8 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 8c4007871d617ad49a91dc8ff75e5501, type: 2}
+    m_Motion: {fileID: 6641085478485924818, guid: a5949da334271124383f6ecec9c4870f,
+      type: 3}
     m_Threshold: 0.6666667
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -359,19 +363,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: HIGH_LOW
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: PUSH_PULL
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: pumpSpeed
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: BaseLayer
@@ -489,13 +499,13 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -4092123006095929982}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: pumpSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 

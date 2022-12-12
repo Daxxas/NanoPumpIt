@@ -49,9 +49,9 @@ public class PumpController : MonoBehaviour
         
         // HIGH LOW animation
         // Debug.Log(playerIndexTurn);
-        // TODO : Demander à Lucas pourquoi y'a un *4 ici
-        if (playerIndexTurn == 1) pumpEquilibrium += Time.deltaTime * 4;
-        else if (playerIndexTurn == 0) pumpEquilibrium -= Time.deltaTime * 4;
+        // TODO : C'est pas de bon de faire ça mais faut trouver la bonne solution au lieu de * 4
+        if (playerIndexTurn == 1) pumpEquilibrium += Time.deltaTime * currentMinPumpTime;
+        else if (playerIndexTurn == 0) pumpEquilibrium -= Time.deltaTime * currentMinPumpTime;
         pumpEquilibrium = Mathf.Clamp01(pumpEquilibrium);
 
         charactersAnimators[0].SetFloat("HIGH_LOW", 1-pumpEquilibrium);

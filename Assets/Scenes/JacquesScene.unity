@@ -500,6 +500,12 @@ MonoBehaviour:
   endingUI: {fileID: 5359974485867510751}
   playerInputsHolder: {fileID: 1276036982}
   timer: {fileID: 877877970}
+  onWin:
+    m_PersistentCalls:
+      m_Calls: []
+  onLose:
+    m_PersistentCalls:
+      m_Calls: []
   gameState: 0
 --- !u!4 &779668500
 Transform:
@@ -1522,7 +1528,7 @@ PrefabInstance:
     - target: {fileID: 3941237536081532197, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
       propertyPath: field of view
-      value: 61.7866
+      value: 61.91872
       objectReference: {fileID: 0}
     - target: {fileID: 3941237536081532197, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
@@ -1587,7 +1593,7 @@ PrefabInstance:
     - target: {fileID: 3941237536305129956, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 61.7866
+      value: 61.91872
       objectReference: {fileID: 0}
     - target: {fileID: 3941237536305129957, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
