@@ -8,15 +8,18 @@ public class AudioSoundPlayer : MonoBehaviour
 {
    [SerializeField] private EventReference soundRef;
    [SerializeField] private bool setupSoundOnStart = false;
+   [SerializeField] private bool playSoundOnStart = false;
 
    private EventInstance soundInstance;
    
    private void Start()
    {
-       if (setupSoundOnStart)
+       if (setupSoundOnStart || playSoundOnStart)
        {
            SetupSoundInstance();
        }
+       
+       StartSoundLoop();
    }
 
    // Setup instance
