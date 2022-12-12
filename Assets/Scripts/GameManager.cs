@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -39,8 +40,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
     [SerializeField] private Timer timer;
 
+    [Header("Events")] 
+    [SerializeField] private UnityEvent onWin;
+    [SerializeField] private UnityEvent onLose;
+
     [SerializeField] private GameState gameState;
 
+    
+    
     private void Start()
     {
         pumpController.onPump.AddListener(StartGame);
@@ -68,19 +75,19 @@ public class GameManager : MonoBehaviour
         {
             gameState = GameState.End;
             timer.Pause();
-            playerInputsHolder.InputProviders[0].onPump +=  i => ResetGame();
-            playerInputsHolder.InputProviders[1].onPump +=  i => ResetGame();
-
-            
+            playerInputsHolder.InputProviders[0].onPump += i => ResetGame();
+            playerInputsHolder.InputProviders[1].onPump += i => ResetGame();
             
             if (endCondition == EndCondition.Lose)
             {
+                onLose?.Invoke();
                 cartController.canMove = false;
                 endingUI.DisplayLose();
             }
             else if (endCondition == EndCondition.Win)
             {
                 // Save time
+                onWin?.Invoke();
                 endingUI.DisplayWin();
             }
         }
