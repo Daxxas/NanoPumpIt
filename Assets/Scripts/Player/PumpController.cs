@@ -32,6 +32,7 @@ public class PumpController : MonoBehaviour
     public bool CanPump => canPump;
 
     private float lastPumpTime;
+    private float nextPumpCooldown;
     
     private int playerIndexTurn = 0;
     public int PlayerIndexTurn => playerIndexTurn;
@@ -41,9 +42,7 @@ public class PumpController : MonoBehaviour
     {
         UpdatePumpMinTime();
 
-        canPump = Time.time - lastPumpTime >= currentMinPumpTime * (pumpInterruptionPercent / 100);
-
-        Debug.Log(canPump);
+        canPump = Time.time - lastPumpTime >= nextPumpCooldown * (pumpInterruptionPercent / 100);
         
         // HIGH LOW animation
         // Debug.Log(playerIndexTurn);
@@ -60,7 +59,7 @@ public class PumpController : MonoBehaviour
     {
         currentMinPumpTime = minPumpTime * minPumpTimeSpeedMultiplierCurve.Evaluate(cartController.CartSpeed) * minPumpTimeDegreeMultiplierCurve.Evaluate(cartController.CurrentRampDegree);
         
-        float pumpAnimationSpeedModifier = pumpAnimation.length / minPumpTime;
+        float pumpAnimationSpeedModifier = pumpAnimation.length / currentMinPumpTime;
         cartAnimator.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
     }
     
@@ -75,6 +74,7 @@ public class PumpController : MonoBehaviour
             }
             
             lastPumpTime = Time.time;
+            nextPumpCooldown = currentMinPumpTime;
             
             onPump?.Invoke();
             SwitchPlayerIndex();
