@@ -88,7 +88,7 @@ public class PumpController : MonoBehaviour
         else
         {
             // Player who pressed pump button is not the one who should pump
-            Debug.Log("Wrong pump !");
+            //Debug.Log("Wrong pump !");
             onWrongPump?.Invoke();
             cartController.CartSpeed -= pumpWrongTurn;
         }
