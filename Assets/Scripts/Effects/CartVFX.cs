@@ -63,10 +63,15 @@ public class CartVFX : MonoBehaviour
         }
     }
 
+    
     private void SpeedVFX()
     {
         if(cartController.CartSpeed > speedThreshold)
         {
+            // Avoid calling play every frame
+            if (speed.isPlaying)
+                return;
+            
             speed.Play();
         }
         else
