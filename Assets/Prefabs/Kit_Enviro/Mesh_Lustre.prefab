@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1479897700402630282}
   - component: {fileID: 8533909770856556742}
   - component: {fileID: 885823928640067062}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light_Candle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1572871938438842651}
   - component: {fileID: 7464328567160161906}
-  m_Layer: 0
+  - component: {fileID: 396261716601070947}
+  - component: {fileID: 6345922294648640954}
+  m_Layer: 6
   m_Name: Mesh_Lustre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,6 +153,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &396261716601070947
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204553925026354081}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6345922294648640954
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204553925026354081}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3099071509979164363
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +194,7 @@ GameObject:
   - component: {fileID: 2306230623544468341}
   - component: {fileID: 4874595253208649223}
   - component: {fileID: 8133677701325951204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light_Candle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +292,7 @@ GameObject:
   - component: {fileID: 7262261536737990536}
   - component: {fileID: 1342859488822578402}
   - component: {fileID: 4540403529688644811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh_Lustre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +402,7 @@ GameObject:
   - component: {fileID: 3445360344720725834}
   - component: {fileID: 4292725644385257248}
   - component: {fileID: 7183375080400945960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light_Candle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +500,7 @@ GameObject:
   - component: {fileID: 366306539952645421}
   - component: {fileID: 7960697167889484958}
   - component: {fileID: 2753810350420547786}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light_Candle6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +598,7 @@ GameObject:
   - component: {fileID: 7359057689810986587}
   - component: {fileID: 1641828571042363734}
   - component: {fileID: 1525795592387556161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light_Candle5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +696,7 @@ GameObject:
   - component: {fileID: 4382967395746124035}
   - component: {fileID: 8273545432994789568}
   - component: {fileID: 5885531934345500195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light_Candle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
