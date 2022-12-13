@@ -15,27 +15,27 @@ public class CartController : MonoBehaviour
     [SerializeField] private PathCreator path;
     [SerializeField] private HitboxManager hitboxManager;
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
-    
+
     [Header("Animators")]
     [SerializeField] private Animator[] charactersAnimators;
     [SerializeField] private Animator cartAnimator;
-    
-    [Header("Cart Controls")]
-    [SerializeField] private float cartMinSpeed = 1f;
-    [SerializeField] private float cartMaxSpeed = 5f;
-    [SerializeField] private float cartPumpAcceleration = 0.2f;
-    [SerializeField] [Tooltip("In speed/s (speed is reduced by X every second)")] private float cartDeccelerationRate = 0.1f;
 
-    [Header("Ramps Acceleration")] 
+    [Header("Cart Controls")]
+    [SerializeField] private float cartMinSpeed = 0f;
+    [SerializeField] private float cartPumpAcceleration = 0.2f;
+    [Tooltip("In speed/s (speed is reduced by X every second)")]
+    [SerializeField] private float cartDeccelerationRate = 0.1f;
+
+    [Header("Ramps Acceleration")]
     [SerializeField] private AnimationCurve accelerationCurve;
 
-    [Header("Others")] 
+    [Header("Others")]
     [SerializeField] private float finishDistanceFromEnd = 5f;
     [SerializeField] private Quaternion rotationOffset = Quaternion.identity;
     private float distanceTravelled = 0f;
     public float DistanceTravelled => distanceTravelled;
 
-    [Header("Events")] 
+    [Header("Events")]
     [SerializeField] private UnityEvent onCartLean;
     [SerializeField] private UnityEvent onCartLeanStop;
     [SerializeField] private UnityEvent onCartReachEnd;
@@ -60,14 +60,13 @@ public class CartController : MonoBehaviour
     private int leanDirection = 0;
     public int LeanDirection => leanDirection;
 
-    public float CartMaxSpeed => cartMaxSpeed;
+    //public float CartMaxSpeed => 0;
     public float CartSpeed
     {
         get => cartSpeed;
         set
         {
-            cartSpeed = value;
-            cartSpeed = Mathf.Clamp(cartSpeed, cartMinSpeed, cartMaxSpeed);
+            cartSpeed = Mathf.Max(value,cartMinSpeed);
         }
     }
 
@@ -84,18 +83,6 @@ public class CartController : MonoBehaviour
     public void AccelerateCart()
     {
         CartSpeed += cartPumpAcceleration;
-    }
-
-    private void FixedUpdate()
-    {
-        CartSpeed -= cartDeccelerationRate * Time.fixedDeltaTime;
-    }
-
-    private void OnGUI()
-    {
-#if UNITY_EDITOR
-        //GUI.Label(new Rect(10, 10, 100, 20), $"Cart Speed: {cartSpeed}");
-#endif
     }
 
     // Update is called once per frame
@@ -124,6 +111,45 @@ public class CartController : MonoBehaviour
             charactersAnimators[1].SetFloat("PUSH_PULL", playerInputsHolder.InputProviders[1].getLeanValue());
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateRampCoef();
+
+        ApplyAcceleration();
+        ApplySpeed();  
+    }
+
+    private void UpdateRampCoef()
+    {
+        // Get direction at pos and determine angle
+        Vector3 directionAtPos = path.path.GetDirectionAtDistance(distanceTravelled);
+        float angleAtDistance = Vector3.Angle(-Vector3.up, directionAtPos);
+
+        // offset angle so there's negative value for down ramp
+        currentRampDegree = angleAtDistance - 90f;
+
+        rampCoef = accelerationCurve.Evaluate(currentRampDegree);
+        // Debug.Log(rampDegree + " " + rampCoef);
+    }
+
+    private void ApplyAcceleration()
+    {
+        float oldCartSpeed = CartSpeed;
+
+        CartSpeed -= cartDeccelerationRate * Time.fixedDeltaTime * oldCartSpeed;
+
+        if (oldCartSpeed < 0)
+        {
+            CartSpeed += 5f * Time.fixedDeltaTime;
+        }
+         
+        //CartSpeed += rampCoef * Time.fixedDeltaTime;
+    }
+
+    private void ApplySpeed()
+    {
         if (canMove)
         {
             distanceTravelled += Time.deltaTime * cartSpeed;
@@ -144,17 +170,8 @@ public class CartController : MonoBehaviour
 
         transform.position = path.path.GetPointAtDistance(distanceTravelled);
         transform.rotation = path.path.GetRotationAtDistance(distanceTravelled) * rotationOffset;
-
-        // Get direction at pos and determine angle
-        Vector3 directionAtPos = path.path.GetDirectionAtDistance(distanceTravelled);
-        float angleAtDistance = Vector3.Angle(-Vector3.up, directionAtPos);
-
-        // offset angle so there's negative value for down ramp
-        currentRampDegree = angleAtDistance - 90f;
-        
-        rampCoef = accelerationCurve.Evaluate(currentRampDegree);
-        // Debug.Log(rampDegree + " " + rampCoef);
     }
+
     public void Lean(int direction)
     {
         if (direction != leanDirection)

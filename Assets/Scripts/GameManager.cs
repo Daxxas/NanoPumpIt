@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
             Destroy(instance.gameObject);
         instance = this;
         
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
     
     public enum GameState
@@ -109,4 +109,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
     }
+
+    [ContextMenu("reload")]
+    void DebugReload()
+    {
+        SceneManager.LoadScene("LucasScene");
+    }
+
 }

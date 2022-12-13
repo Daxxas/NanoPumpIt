@@ -28,4 +28,10 @@ public class GamepadDisconnectScript : MonoBehaviour
         GDs[1].SetActive(playerInputsHolder.InputProviders[1] == null);
     }
 
+    private void OnDestroy()
+    {
+        playerInputsHolder.onPlayerJoined -= UpdateUI;
+        playerInputsHolder.onPlayerLeft -= UpdateUI;
+    }
+
 }

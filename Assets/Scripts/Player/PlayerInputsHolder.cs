@@ -16,6 +16,11 @@ public class PlayerInputsHolder : MonoBehaviour
     public Action onPlayerJoined;
     public Action onPlayerLeft;
 
+    private void Start()
+    {
+        //DontDestroyOnLoad(gameObject);
+    }
+
     public void AddPlayer(PlayerInput playerInput)
     {
         inputProviders[playerCount] = playerInput.GetComponent<InputProvider>();

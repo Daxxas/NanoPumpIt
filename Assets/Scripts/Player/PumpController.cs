@@ -63,7 +63,7 @@ public class PumpController : MonoBehaviour
         currentMinPumpTime = minPumpTime * minPumpTimeSpeedMultiplierCurve.Evaluate(cartController.CartSpeed) * minPumpTimeDegreeMultiplierCurve.Evaluate(cartController.CurrentRampDegree);
         
         float pumpAnimationSpeedModifier = pumpAnimation.length / currentMinPumpTime;
-        cartAnimator.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
+        cartAnimator?.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
     }
     
     public void Pump(int playerIndex)
@@ -101,7 +101,11 @@ public class PumpController : MonoBehaviour
     {
         // alternate between 0 and 1
         playerIndexTurn = (playerIndexTurn + 1) % 2;
-        cartAnimator.SetInteger("playerIndexTurn", playerIndexTurn);
+        if (cartAnimator != null)
+        {
+            cartAnimator.SetInteger("playerIndexTurn", playerIndexTurn);
+            
+        } else Debug.Log("mqlsdjf");
 
         if (playerIndexTurn == 0)
         {
