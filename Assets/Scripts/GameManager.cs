@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputSystemUIInputModule inputModule;
 
     [Header("Events")] 
+    [SerializeField] private UnityEvent onStart;
+    [SerializeField] private UnityEvent onReset;
     [SerializeField] private UnityEvent onWin;
     [SerializeField] private UnityEvent onLose;
 
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour
             cartController.canMove = true;
             highscoreBoard.HideBoard();
             timer.Play();
+            onStart?.Invoke();
         }
     }
 
@@ -104,6 +107,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameState == GameState.End)
         {
+            onReset?.Invoke();
             transitionUI.Transition(true, () =>
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

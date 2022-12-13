@@ -1183,6 +1183,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3628354469869694086}
   - component: {fileID: 4236576554713289197}
+  - component: {fileID: 6259452019347827314}
+  - component: {fileID: 7468131439678813952}
   m_Layer: 0
   m_Name: CartRolling
   m_TagString: Untagged
@@ -1226,6 +1228,35 @@ MonoBehaviour:
     Path: event:/SFX/KartLocomotion
   setupSoundOnStart: 1
   playSoundOnStart: 1
+--- !u!114 &6259452019347827314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4130964004572353661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb97f0eb6454b0d868fe3f532d327e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameter: KartSpeed
+  value: 0
+--- !u!114 &7468131439678813952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4130964004572353661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e705e0604c4803a724fc42f82032b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cartController: {fileID: 4546876128747194796}
+  audioParameterSetter: {fileID: 6259452019347827314}
+  audioSoundPlayer: {fileID: 4236576554713289197}
 --- !u!1 &4546876128279251036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,11 +2522,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundRef:
     Guid:
-      Data1: -1331244916
-      Data2: 1333802435
-      Data3: 287690903
-      Data4: 2057026659
-    Path: event:/Music
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   setupSoundOnStart: 1
   playSoundOnStart: 1
 --- !u!114 &2275306298875589107
