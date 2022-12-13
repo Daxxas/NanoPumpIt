@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CartController cartController;
     [SerializeField] private HighscoreBoard highscoreBoard;
     [SerializeField] private EndingUI endingUI;
+    [SerializeField] private TransitionUI transitionUI;
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
     [SerializeField] private Timer timer;
 
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
+        transitionUI.Transition(false, () => {});
         pumpController.onPump.AddListener(StartGame);
         cartController.OnCartReachEnd.AddListener( () => StopGame(EndCondition.Win));
     }
@@ -98,10 +100,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Reset Game");
         if (gameState == GameState.End)
         {
-            playerInputsHolder.InputProviders[0].onPump -=  i => ResetGame();
-            playerInputsHolder.InputProviders[1].onPump -=  i => ResetGame();
-            
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            transitionUI.Transition(true, () =>
+            {
+                playerInputsHolder.InputProviders[0].onPump -=  i => ResetGame();
+                playerInputsHolder.InputProviders[1].onPump -=  i => ResetGame();
+                
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            });
         }
     }
     
