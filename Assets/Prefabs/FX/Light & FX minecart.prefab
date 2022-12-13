@@ -508,6 +508,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX_Dust
       objectReference: {fileID: 0}
+    - target: {fileID: 5031889046167588484, guid: e8956c2b9163f6e41a13e89b931df98f,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8291702065036921920, guid: e8956c2b9163f6e41a13e89b931df98f,
         type: 3}
       propertyPath: m_RootOrder
