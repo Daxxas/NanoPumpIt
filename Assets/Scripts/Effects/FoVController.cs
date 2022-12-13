@@ -23,7 +23,7 @@ public class FoVController : MonoBehaviour
     private void Update()
     {
         float fovDelta = maxFOV - minFOV;
-        float targetFOV = minFOV + fovDelta * cartController.CartSpeed / cartController.CartMaxSpeed;
+        float targetFOV = minFOV + fovDelta * cartController.CartSpeed / 1 /*cartController.CartMaxSpeed*/;
         currentFOV = Mathf.Lerp(currentFOV, targetFOV, Time.deltaTime);
         camera.m_Lens.FieldOfView = currentFOV;
     }

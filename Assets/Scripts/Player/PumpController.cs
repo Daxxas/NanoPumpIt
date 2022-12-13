@@ -49,13 +49,13 @@ public class PumpController : MonoBehaviour
         
         // HIGH LOW animation
         // Debug.Log(playerIndexTurn);
-        // TODO : Demander à Lucas pourquoi y'a un *4 ici
-        if (playerIndexTurn == 1) pumpEquilibrium += Time.deltaTime * 4;
-        else if (playerIndexTurn == 0) pumpEquilibrium -= Time.deltaTime * 4;
-        pumpEquilibrium = Mathf.Clamp01(pumpEquilibrium);
+        // TODO : C'est pas de bon de faire ça mais faut trouver la bonne solution au lieu de * 4
+        if (playerIndexTurn == 1) pumpEquilibrium += Time.deltaTime / currentMinPumpTime;
+        else if (playerIndexTurn == 0) pumpEquilibrium -= Time.deltaTime / currentMinPumpTime;
+        pumpEquilibrium = Mathf.Clamp(pumpEquilibrium, -1, 1);
 
-        charactersAnimators[0].SetFloat("HIGH_LOW", 1-pumpEquilibrium);
-        charactersAnimators[1].SetFloat("HIGH_LOW", pumpEquilibrium);
+        charactersAnimators[1].SetFloat("HIGH_LOW", 1-pumpEquilibrium);
+        charactersAnimators[0].SetFloat("HIGH_LOW", pumpEquilibrium);
     }
 
     private void UpdatePumpMinTime()
@@ -63,11 +63,13 @@ public class PumpController : MonoBehaviour
         currentMinPumpTime = minPumpTime * minPumpTimeSpeedMultiplierCurve.Evaluate(cartController.CartSpeed) * minPumpTimeDegreeMultiplierCurve.Evaluate(cartController.CurrentRampDegree);
         
         float pumpAnimationSpeedModifier = pumpAnimation.length / currentMinPumpTime;
-        cartAnimator.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
+        cartAnimator?.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
     }
     
     public void Pump(int playerIndex)
     {
+        if(cartController.HasCartReachedEnd) return;
+        
         if (playerIndex == playerIndexTurn)
         {
             if (!canPump)
@@ -88,7 +90,7 @@ public class PumpController : MonoBehaviour
         else
         {
             // Player who pressed pump button is not the one who should pump
-            Debug.Log("Wrong pump !");
+            //Debug.Log("Wrong pump !");
             onWrongPump?.Invoke();
             cartController.CartSpeed -= pumpWrongTurn;
         }
@@ -99,7 +101,11 @@ public class PumpController : MonoBehaviour
     {
         // alternate between 0 and 1
         playerIndexTurn = (playerIndexTurn + 1) % 2;
-        cartAnimator.SetInteger("playerIndexTurn", playerIndexTurn);
+        if (cartAnimator != null)
+        {
+            cartAnimator.SetInteger("playerIndexTurn", playerIndexTurn);
+            
+        } else Debug.Log("mqlsdjf");
 
         if (playerIndexTurn == 0)
         {

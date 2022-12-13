@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class GameManager : MonoBehaviour
             Destroy(instance.gameObject);
         instance = this;
         
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
     
     public enum GameState
@@ -34,14 +36,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PumpController pumpController;
     [SerializeField] private CartController cartController;
     [SerializeField] private HighscoreBoard highscoreBoard;
+    [SerializeField] private EndingUI endingUI;
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
     [SerializeField] private Timer timer;
 
+    [Header("Events")] 
+    [SerializeField] private UnityEvent onWin;
+    [SerializeField] private UnityEvent onLose;
+
     [SerializeField] private GameState gameState;
 
+    
+    
     private void Start()
     {
         pumpController.onPump.AddListener(StartGame);
+        cartController.OnCartReachEnd.AddListener( () => StopGame(EndCondition.Win));
     }
 
     private void StartGame()
@@ -53,35 +63,57 @@ public class GameManager : MonoBehaviour
 
             cartController.canMove = true;
             highscoreBoard.HideBoard();
+            timer.Play();
         }
     }
 
     public void StopGame(EndCondition endCondition)
     {
+        Debug.Log("Stop game !");
         // Logic when the game ends
         if (gameState != GameState.End)
         {
             gameState = GameState.End;
-
+            timer.Pause();
+            playerInputsHolder.InputProviders[0].onPump += i => ResetGame();
+            playerInputsHolder.InputProviders[1].onPump += i => ResetGame();
+            
             if (endCondition == EndCondition.Lose)
             {
+                onLose?.Invoke();
                 cartController.canMove = false;
+                endingUI.DisplayLose();
             }
             else if (endCondition == EndCondition.Win)
             {
-                // Save time 
+                // Save time
+                onWin?.Invoke();
+                endingUI.DisplayWin();
             }
         }
     }
 
     public void ResetGame()
     {
-        gameState = GameState.Menu;
-        // Logic to restart the game
+        Debug.Log("Reset Game");
+        if (gameState == GameState.End)
+        {
+            playerInputsHolder.InputProviders[0].onPump -=  i => ResetGame();
+            playerInputsHolder.InputProviders[1].onPump -=  i => ResetGame();
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
     
     // Update is called once per frame
     void Update()
     {
     }
+
+    [ContextMenu("reload")]
+    void DebugReload()
+    {
+        SceneManager.LoadScene("LucasScene");
+    }
+
 }

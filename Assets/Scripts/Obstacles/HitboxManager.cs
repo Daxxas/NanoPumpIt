@@ -18,7 +18,7 @@ public class HitboxManager : MonoBehaviour
     }
     
     [Header("Hitboxes")]
-    [SerializeField] List<PlayerHitbox> playerHitboxes;
+    [SerializeField] List<PlayerHitbox> playerHitboxes = new List<PlayerHitbox>();
     
     private void Awake()
     {
@@ -28,8 +28,18 @@ public class HitboxManager : MonoBehaviour
         }
     }
 
+    public void OnDestroy()
+    {
+        foreach (var playerHitbox in playerHitboxes)
+        {
+            playerHitbox.onHit -= v => onHit?.Invoke(v);
+        }
+    }
+
     public void SetActiveHitbox(int index, bool isActive)
     {
+        Debug.Log(playerHitboxes[index].Collider == null);
+
         playerHitboxes[index].Collider.enabled = isActive;
     }
 

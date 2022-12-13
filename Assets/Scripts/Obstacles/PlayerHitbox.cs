@@ -9,19 +9,30 @@ public class PlayerHitbox : MonoBehaviour
 
     public Action<Vector3> onHit;
 
-    private Collider collider;
+    private Collider boxCollider;
 
-    public Collider Collider => collider;
-
-    private void Awake()
+    public Collider Collider
     {
-        collider = GetComponent<Collider>();
+        get
+        {
+            if (boxCollider == null)
+            {
+                boxCollider = GetComponent<Collider>();
+            }
+            return boxCollider;
+        }
+    }
+
+    private void Start()
+    {
+        Debug.Log("HITBOX : " + gameObject.name);
+        boxCollider = GetComponent<Collider>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if ((obstacleLayer.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-            var collisionPoint = collider.ClosestPoint(transform.position);
+            var collisionPoint = boxCollider.ClosestPoint(transform.position);
             
             // Collision normal
             //var collisionNormal = transform.position - collisionPoint;

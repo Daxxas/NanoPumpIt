@@ -15,52 +15,58 @@ public class CartController : MonoBehaviour
     [SerializeField] private PathCreator path;
     [SerializeField] private HitboxManager hitboxManager;
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
-    
+
     [Header("Animators")]
     [SerializeField] private Animator[] charactersAnimators;
     [SerializeField] private Animator cartAnimator;
-    
-    [Header("Cart Controls")]
-    [SerializeField] private float cartMinSpeed = 1f;
-    [SerializeField] private float cartMaxSpeed = 5f;
-    [SerializeField] private float cartPumpAcceleration = 0.2f;
-    [SerializeField] [Tooltip("In speed/s (speed is reduced by X every second)")] private float cartDeccelerationRate = 0.1f;
 
-    [Header("Ramps Acceleration")] 
+    [Header("Cart Controls")]
+    [SerializeField] private float cartMinSpeed = 0f;
+    [SerializeField] private float cartPumpAcceleration = 0.2f;
+    [Tooltip("In speed/s (speed is reduced by X every second)")]
+    [SerializeField] private float cartDeccelerationRate = 0.1f;
+
+    [Header("Ramps Acceleration")]
     [SerializeField] private AnimationCurve accelerationCurve;
 
-    [Header("Others")] 
+    [Header("Others")]
     [SerializeField] private float finishDistanceFromEnd = 5f;
     [SerializeField] private Quaternion rotationOffset = Quaternion.identity;
     private float distanceTravelled = 0f;
+    public float DistanceTravelled => distanceTravelled;
 
-    [Header("Events")] 
+    [Header("Events")]
     [SerializeField] private UnityEvent onCartLean;
     [SerializeField] private UnityEvent onCartLeanStop;
+    [SerializeField] private UnityEvent onCartReachEnd;
 
     public UnityEvent OnCartLean => onCartLean;
     public UnityEvent OnCartLeanStop => onCartLeanStop;
 
+    public UnityEvent OnCartReachEnd => onCartReachEnd;
+
     [Header("Display info")]
     [SerializeField] private float cartSpeed = 0f;
     [SerializeField] private float currentRampDegree = 0f;
-
+    
     public bool canMove = true;
     
+    private bool hasCartReachedEnd = false;
+    public bool HasCartReachedEnd => hasCartReachedEnd;
+
     private float rampCoef = 1f;
     public float CurrentRampDegree => currentRampDegree;
 
     private int leanDirection = 0;
     public int LeanDirection => leanDirection;
 
-    public float CartMaxSpeed => cartMaxSpeed;
+    //public float CartMaxSpeed => 0;
     public float CartSpeed
     {
         get => cartSpeed;
         set
         {
-            cartSpeed = value;
-            cartSpeed = Mathf.Clamp(cartSpeed, cartMinSpeed, cartMaxSpeed);
+            cartSpeed = Mathf.Max(value,cartMinSpeed);
         }
     }
 
@@ -77,18 +83,6 @@ public class CartController : MonoBehaviour
     public void AccelerateCart()
     {
         CartSpeed += cartPumpAcceleration;
-    }
-
-    private void FixedUpdate()
-    {
-        CartSpeed -= cartDeccelerationRate * Time.fixedDeltaTime;
-    }
-
-    private void OnGUI()
-    {
-#if UNITY_EDITOR
-        //GUI.Label(new Rect(10, 10, 100, 20), $"Cart Speed: {cartSpeed}");
-#endif
     }
 
     // Update is called once per frame
@@ -111,38 +105,73 @@ public class CartController : MonoBehaviour
             }
 
             cartAnimator.SetInteger("LeanDirection", LeanDirection);
-
             
             // lean animation
             charactersAnimators[0].SetFloat("PUSH_PULL", playerInputsHolder.InputProviders[0].getLeanValue());
             charactersAnimators[1].SetFloat("PUSH_PULL", playerInputsHolder.InputProviders[1].getLeanValue());
         }
 
-        if (canMove)
-        {
-            distanceTravelled += Time.deltaTime * cartSpeed;
-            
-            // Prevent cart from going too far
-            if (distanceTravelled >= path.path.length)
-            {
-                distanceTravelled = path.path.length;
-                canMove = false;
-            }
-        }
+    }
 
-        transform.position = path.path.GetPointAtDistance(distanceTravelled);
-        transform.rotation = path.path.GetRotationAtDistance(distanceTravelled) * rotationOffset;
+    private void FixedUpdate()
+    {
+        UpdateRampCoef();
 
+        ApplyAcceleration();
+        ApplySpeed();  
+    }
+
+    private void UpdateRampCoef()
+    {
         // Get direction at pos and determine angle
         Vector3 directionAtPos = path.path.GetDirectionAtDistance(distanceTravelled);
         float angleAtDistance = Vector3.Angle(-Vector3.up, directionAtPos);
 
         // offset angle so there's negative value for down ramp
         currentRampDegree = angleAtDistance - 90f;
-        
+
         rampCoef = accelerationCurve.Evaluate(currentRampDegree);
         // Debug.Log(rampDegree + " " + rampCoef);
     }
+
+    private void ApplyAcceleration()
+    {
+        float oldCartSpeed = CartSpeed;
+
+        CartSpeed -= cartDeccelerationRate * Time.fixedDeltaTime * oldCartSpeed;
+
+        if (oldCartSpeed < 0)
+        {
+            CartSpeed += 5f * Time.fixedDeltaTime;
+        }
+         
+        //CartSpeed += rampCoef * Time.fixedDeltaTime;
+    }
+
+    private void ApplySpeed()
+    {
+        if (canMove)
+        {
+            distanceTravelled += Time.deltaTime * cartSpeed;
+            
+            if(distanceTravelled >= path.path.length - finishDistanceFromEnd && !hasCartReachedEnd)
+            {
+                hasCartReachedEnd = true;
+                OnCartReachEnd.Invoke();
+            }
+            
+            // Prevent cart from going too far
+            if (distanceTravelled >= path.path.length)
+            {
+                distanceTravelled = path.path.length-0.01f; // -0.01f to prevent cart from going back to the beginning
+                canMove = false;
+            }
+        }
+
+        transform.position = path.path.GetPointAtDistance(distanceTravelled);
+        transform.rotation = path.path.GetRotationAtDistance(distanceTravelled) * rotationOffset;
+    }
+
     public void Lean(int direction)
     {
         if (direction != leanDirection)
@@ -193,8 +222,11 @@ public class CartController : MonoBehaviour
     #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        float endLength = path.path.length - finishDistanceFromEnd;
-        Gizmos.DrawCube(path.path.GetPointAtDistance(endLength), Vector3.one * 1f); 
+        if (path != null)
+        {
+            float endLength = path.path.length - finishDistanceFromEnd;
+            Gizmos.DrawCube(path.path.GetPointAtDistance(endLength), Vector3.one * 1f);
+        }
     }
     #endif
 }

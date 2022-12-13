@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class CartVFX : MonoBehaviour
@@ -16,7 +17,11 @@ public class CartVFX : MonoBehaviour
 
     [Header("Parameters")] 
     [SerializeField] private float speedThreshold = 3f;
-    
+
+    [Header("Events for SFX parce que j'ai la flemme")] 
+    [SerializeField] private UnityEvent onSpeed;
+    [SerializeField] private UnityEvent onSpeedStop;
+
     private void Start()
     {
         cartController.OnCartLean.AddListener(LeanVFX);
@@ -73,10 +78,12 @@ public class CartVFX : MonoBehaviour
                 return;
             
             speed.Play();
+            onSpeed?.Invoke();
         }
         else
         {
             speed.Stop();
+            onSpeedStop?.Invoke();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 
@@ -11,7 +12,15 @@ public class PlayerInputsHolder : MonoBehaviour
     public InputProvider[] InputProviders => inputProviders;
 
     private int playerCount = 0;
-    
+
+    public Action onPlayerJoined;
+    public Action onPlayerLeft;
+
+    private void Start()
+    {
+        //DontDestroyOnLoad(gameObject);
+    }
+
     public void AddPlayer(PlayerInput playerInput)
     {
         inputProviders[playerCount] = playerInput.GetComponent<InputProvider>();
@@ -21,8 +30,14 @@ public class PlayerInputsHolder : MonoBehaviour
         //playersController.InputProviders[playerCount].onLean += playersController.Lean;
         playerCount++;
         TryDisableJoin();
+        onPlayerJoined?.Invoke();
     }
     
+    public void RemovePlayer()
+    {
+        onPlayerLeft?.Invoke();
+    }
+
     public void TryDisableJoin()
     {
         if (playerInputManager.playerCount >= 2)
