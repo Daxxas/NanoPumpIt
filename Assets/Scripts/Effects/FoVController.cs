@@ -26,7 +26,8 @@ public class FoVController : MonoBehaviour
         float fovDelta = maxFOV - minFOV;
         //float targetFOV = minFOV + fovDelta * cartController.CartSpeed / speedForMaxFOV;
 
-        float targetFOV = (Sigmoid(Mathf.Log(cartController.CartSpeed) * 0.5f) * (maxFOV - minFOV)) + minFOV;
+        float targetFOV = (Sigmoid(Mathf.Log(Mathf.Max(cartController.CartSpeed,0.01f) * 0.2f)) * (maxFOV - minFOV)) + minFOV;
+        //Debug.Log("targetFOV : " + targetFOV);
         currentFOV = Mathf.Lerp(currentFOV, targetFOV, Time.deltaTime);
         currentFOV = Mathf.Clamp(currentFOV, minFOV, maxFOV);
 

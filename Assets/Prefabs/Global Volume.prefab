@@ -931,6 +931,7 @@ GameObject:
   - component: {fileID: 3884695396905074831}
   - component: {fileID: 7867465715612027092}
   - component: {fileID: 5257960262198826467}
+  - component: {fileID: 3134894125140929199}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -1443,3 +1444,27 @@ MonoBehaviour:
     m_RotationOrder: 4
   RemapIntensityZero: 0
   RemapIntensityOne: 0.5
+--- !u!114 &3134894125140929199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296570626586906136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f9eaf985734714acb96c55024717dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 6296570626586906139}
+  cartController: {fileID: 0}
+  normalVignetteIntensity: 0.43
+  normalVignetteColor: {r: 0.16862746, g: 0.043137256, b: 0.12156863, a: 0}
+  normalColorAdjustementsFilter: {r: 1, g: 1, b: 1, a: 0}
+  normalLensDistortionIntensity: 0
+  normalChromaticAberrationIntensity: 0.02
+  speedVignetteIntensity: 0.5
+  speedVignetteColor: {r: 0.09411765, g: 0.043137256, b: 0.16862746, a: 0}
+  speedColorAdjustementsFilter: {r: 1, g: 1, b: 1, a: 0}
+  speedLensDistortionIntensity: -0.17
+  speedChromaticAberrationIntensity: 0.2
