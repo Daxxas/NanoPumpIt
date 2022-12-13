@@ -18,13 +18,21 @@ public class HitboxManager : MonoBehaviour
     }
     
     [Header("Hitboxes")]
-    [SerializeField] List<PlayerHitbox> playerHitboxes;
+    [SerializeField] List<PlayerHitbox> playerHitboxes = new List<PlayerHitbox>();
     
     private void Awake()
     {
         foreach (var playerHitbox in playerHitboxes)
         {
             playerHitbox.onHit += v => onHit?.Invoke(v);
+        }
+    }
+
+    public void OnDestroy()
+    {
+        foreach (var playerHitbox in playerHitboxes)
+        {
+            playerHitbox.onHit -= v => onHit?.Invoke(v);
         }
     }
 

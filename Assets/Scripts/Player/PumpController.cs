@@ -23,6 +23,9 @@ public class PumpController : MonoBehaviour
     [SerializeField] private float pumpTooFast = .1f;
     [SerializeField] private float pumpWrongTurn = .1f;
 
+    [Header("Animations")]
+    [SerializeField] private AnimationCurve characterMovementCurve;
+
     [Header("Events")] 
     [SerializeField] public UnityEvent onPump;
     [SerializeField] public UnityEvent onWrongPump;
@@ -50,12 +53,15 @@ public class PumpController : MonoBehaviour
         // HIGH LOW animation
         // Debug.Log(playerIndexTurn);
         // TODO : C'est pas de bon de faire ça mais faut trouver la bonne solution au lieu de * 4
-        if (playerIndexTurn == 1) pumpEquilibrium += Time.deltaTime / currentMinPumpTime;
-        else if (playerIndexTurn == 0) pumpEquilibrium -= Time.deltaTime / currentMinPumpTime;
-        pumpEquilibrium = Mathf.Clamp(pumpEquilibrium, -1, 1);
+        if (playerIndexTurn == 1) pumpEquilibrium += Time.deltaTime * (1 / currentMinPumpTime);
+        else if (playerIndexTurn == 0) pumpEquilibrium -= Time.deltaTime * (1 / currentMinPumpTime);
+        pumpEquilibrium = Mathf.Clamp(pumpEquilibrium, 0, 1);
 
-        charactersAnimators[1].SetFloat("HIGH_LOW", 1-pumpEquilibrium);
-        charactersAnimators[0].SetFloat("HIGH_LOW", pumpEquilibrium);
+        float pumpEquilibriumAnimation = characterMovementCurve.Evaluate(pumpEquilibrium);
+        float pumpEquilibriumAnimationClamped = (pumpEquilibriumAnimation * 2) - 1;
+
+        charactersAnimators[1].SetFloat("HIGH_LOW", -pumpEquilibriumAnimationClamped);
+        charactersAnimators[0].SetFloat("HIGH_LOW", pumpEquilibriumAnimationClamped);
     }
 
     private void UpdatePumpMinTime()
@@ -63,7 +69,7 @@ public class PumpController : MonoBehaviour
         currentMinPumpTime = minPumpTime * minPumpTimeSpeedMultiplierCurve.Evaluate(cartController.CartSpeed) * minPumpTimeDegreeMultiplierCurve.Evaluate(cartController.CurrentRampDegree);
         
         float pumpAnimationSpeedModifier = pumpAnimation.length / currentMinPumpTime;
-        cartAnimator.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
+        cartAnimator?.SetFloat("pumpSpeed", pumpAnimationSpeedModifier);
     }
     
     public void Pump(int playerIndex)
@@ -101,7 +107,11 @@ public class PumpController : MonoBehaviour
     {
         // alternate between 0 and 1
         playerIndexTurn = (playerIndexTurn + 1) % 2;
-        cartAnimator.SetInteger("playerIndexTurn", playerIndexTurn);
+        if (cartAnimator != null)
+        {
+            cartAnimator.SetInteger("playerIndexTurn", playerIndexTurn);
+            
+        } else Debug.Log("mqlsdjf");
 
         if (playerIndexTurn == 0)
         {
