@@ -31,10 +31,13 @@ public class CartVFX : MonoBehaviour
 
     private void Update()
     {
-        SpeedVFX();
+        //SpeedVFX();
 
-        var emission = dust.emission;
-        emission.rateOverTime = Mathf.Clamp((float)(cartController.CartSpeed * 2.5) - 5, 0, 30);
+        var emissionDust = dust.emission;
+        emissionDust.rateOverTime = Mathf.Clamp((float)(cartController.CartSpeed * 2.5) - 5, 0, 30);
+
+        var emissionSpeed = speed.emission;
+        emissionSpeed.rateOverTime = Mathf.Clamp((float)(cartController.CartSpeed * 2.5) - 5, 0, 30);
 
     }
 
