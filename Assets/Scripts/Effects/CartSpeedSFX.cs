@@ -14,7 +14,7 @@ public class CartSpeedSFX : MonoBehaviour
     {
         audioParameterSetter.ApplyParameter(cartController.CartSpeed);
 
-        if (cartController.CartSpeed <= 0)
+        if (cartController.CartSpeed <= 0.002f)
         {
             Debug.Log("Stop sound");
             hasStarted = false;

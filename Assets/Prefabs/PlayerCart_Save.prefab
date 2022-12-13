@@ -1120,59 +1120,6 @@ Transform:
   m_Father: {fileID: 532040841452660702}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3802562392532907350
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5158115953949769828}
-  - component: {fileID: 1378812247199640213}
-  m_Layer: 0
-  m_Name: ErrorInput
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5158115953949769828
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3802562392532907350}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3917308017365381767}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1378812247199640213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3802562392532907350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b010c6b4ff9c42e4baa660dfd4fa76ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundRef:
-    Guid:
-      Data1: -1671921039
-      Data2: 1083076367
-      Data3: 1225909658
-      Data4: 25060747
-    Path: event:/SFX/ErrorInput
-  setupSoundOnStart: 0
-  playSoundOnStart: 0
 --- !u!1 &4130964004572353661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,7 +1267,19 @@ MonoBehaviour:
     m_Bits: 64
   onHitUnity:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6157890359697087880}
+        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4546876128516435661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,7 +1571,7 @@ MonoBehaviour:
   onWrongPump:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1378812247199640213}
+      - m_Target: {fileID: 6099655137047033604}
         m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
         m_MethodName: PlaySoundOneShot
         m_Mode: 1
@@ -1627,7 +1586,7 @@ MonoBehaviour:
   onPumpTooFast:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1378812247199640213}
+      - m_Target: {fileID: 6099655137047033604}
         m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
         m_MethodName: PlaySoundOneShot
         m_Mode: 1
@@ -1780,7 +1739,19 @@ MonoBehaviour:
     m_Bits: 64
   onHitUnity:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6790449420067284889}
+        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4546876129664789013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,7 +1815,19 @@ MonoBehaviour:
     m_Bits: 64
   onHitUnity:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8136189382020751596}
+        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4546876129797759188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,7 +1923,19 @@ MonoBehaviour:
     m_Bits: 64
   onHitUnity:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3103293683682341313}
+        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4607772069604374674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,8 +1967,12 @@ Transform:
   - {fileID: 3628354469869694086}
   - {fileID: 4869934286371630759}
   - {fileID: 2846966992875855568}
-  - {fileID: 5158115953949769828}
   - {fileID: 6412977221310844469}
+  - {fileID: 7168560873202774424}
+  - {fileID: 363581769068816395}
+  - {fileID: 936868527258701961}
+  - {fileID: 4312675840257249985}
+  - {fileID: 6707987114580704216}
   m_Father: {fileID: 4546876128747194795}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2212,6 +2211,59 @@ SkinnedMeshRenderer:
     m_Center: {x: -3.1076035, y: 0.0027946234, z: 0}
     m_Extent: {x: 0.18525839, y: 1.6859816, z: 1.2843457}
   m_DirtyAABB: 0
+--- !u!1 &5396329564295450815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6707987114580704216}
+  - component: {fileID: 6099655137047033604}
+  m_Layer: 0
+  m_Name: ErrorInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6707987114580704216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396329564295450815}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3917308017365381767}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6099655137047033604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396329564295450815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010c6b4ff9c42e4baa660dfd4fa76ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: -1671921039
+      Data2: 1083076367
+      Data3: 1225909658
+      Data4: 25060747
+    Path: event:/SFX/ErrorInput
+  setupSoundOnStart: 0
+  playSoundOnStart: 0
 --- !u!1 &5470196301913843665
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,11 +2574,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundRef:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1331244916
+      Data2: 1333802435
+      Data3: 287690903
+      Data4: 2057026659
+    Path: event:/Music
   setupSoundOnStart: 1
   playSoundOnStart: 1
 --- !u!114 &2275306298875589107
@@ -2543,6 +2595,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameter: MusicSwitch
   value: 0
+--- !u!1 &6495885609485112209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4312675840257249985}
+  - component: {fileID: 3103293683682341313}
+  m_Layer: 0
+  m_Name: ImpactSpiderWebRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4312675840257249985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6495885609485112209}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3917308017365381767}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3103293683682341313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6495885609485112209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010c6b4ff9c42e4baa660dfd4fa76ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: -1378878129
+      Data2: 1081306696
+      Data3: -861707094
+      Data4: 589088399
+    Path: event:/SFX/ImpactObstacleSpiderWebRight
+  setupSoundOnStart: 0
+  playSoundOnStart: 0
 --- !u!1 &6683304773058754006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,7 +2678,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3917308017365381767}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8697995820582526474
 MonoBehaviour:
@@ -2594,6 +2699,59 @@ MonoBehaviour:
       Data3: -876374652
       Data4: 788609165
     Path: event:/SFX/SpeedWhoosh
+  setupSoundOnStart: 1
+  playSoundOnStart: 0
+--- !u!1 &6766319829954387214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 363581769068816395}
+  - component: {fileID: 8136189382020751596}
+  m_Layer: 0
+  m_Name: ImpactSpiderWebLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &363581769068816395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766319829954387214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3917308017365381767}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8136189382020751596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766319829954387214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010c6b4ff9c42e4baa660dfd4fa76ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: 1468268010
+      Data2: 1126092711
+      Data3: 1846239363
+      Data4: -277802207
+    Path: event:/SFX/ImpactObstacleSpiderWebLeft
   setupSoundOnStart: 0
   playSoundOnStart: 0
 --- !u!1 &7419727002566812282
@@ -2746,6 +2904,59 @@ Transform:
   m_Father: {fileID: 5489308568384642343}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 89.671, y: 10.392, z: 103.132}
+--- !u!1 &7593210710213301501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936868527258701961}
+  - component: {fileID: 6157890359697087880}
+  m_Layer: 0
+  m_Name: ImpactChandelierRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &936868527258701961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593210710213301501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3917308017365381767}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6157890359697087880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593210710213301501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010c6b4ff9c42e4baa660dfd4fa76ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: 2023988507
+      Data2: 1189047614
+      Data3: -394411845
+      Data4: 668015357
+    Path: event:/SFX/ImpactObstacleChandelierRight
+  setupSoundOnStart: 0
+  playSoundOnStart: 0
 --- !u!1 &7976278425331045300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,6 +3016,59 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &8424427230011250115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7168560873202774424}
+  - component: {fileID: 6790449420067284889}
+  m_Layer: 0
+  m_Name: ImpactChandelierLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7168560873202774424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8424427230011250115}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3917308017365381767}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6790449420067284889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8424427230011250115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010c6b4ff9c42e4baa660dfd4fa76ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: -1543017496
+      Data2: 1239071432
+      Data3: 360050849
+      Data4: 805107274
+    Path: event:/SFX/ImpactObstacleChandelierLeft
+  setupSoundOnStart: 0
+  playSoundOnStart: 0
 --- !u!1 &8711700292960487020
 GameObject:
   m_ObjectHideFlags: 0
