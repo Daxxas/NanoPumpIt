@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CartController cartController;
     [SerializeField] private HighscoreBoard highscoreBoard;
     [SerializeField] private EndingUI endingUI;
+    [SerializeField] private TransitionUI transitionUI;
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
     [SerializeField] private Timer timer;
 
@@ -44,12 +45,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent onWin;
     [SerializeField] private UnityEvent onLose;
 
-    [SerializeField] private GameState gameState;
+    private GameState gameState;
 
-    
-    
     private void Start()
     {
+        transitionUI.Transition(false, () => {});
         pumpController.onPump.AddListener(StartGame);
         cartController.OnCartReachEnd.AddListener( () => StopGame(EndCondition.Win));
     }
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Stop game !");
         // Logic when the game ends
-        if (gameState != GameState.End)
+        if (gameState == GameState.Gameplay)
         {
             gameState = GameState.End;
             timer.Pause();
@@ -95,19 +95,22 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        Debug.Log("Reset Game");
         if (gameState == GameState.End)
         {
-            playerInputsHolder.InputProviders[0].onPump -=  i => ResetGame();
-            playerInputsHolder.InputProviders[1].onPump -=  i => ResetGame();
+            playerInputsHolder.InputProviders[0].onPump -= i => ResetGame();
+            playerInputsHolder.InputProviders[1].onPump -= i => ResetGame();
             
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            transitionUI.Transition(true, () =>
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            });
         }
     }
     
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("GameState : " + gameState); 
     }
 
     [ContextMenu("reload")]

@@ -60,7 +60,6 @@ public class CartController : MonoBehaviour
     private int leanDirection = 0;
     public int LeanDirection => leanDirection;
 
-    //public float CartMaxSpeed => 0;
     public float CartSpeed
     {
         get => cartSpeed;
@@ -107,7 +106,7 @@ public class CartController : MonoBehaviour
             cartAnimator.SetInteger("LeanDirection", LeanDirection);
             
             // lean animation
-            charactersAnimators[0].SetFloat("PUSH_PULL", playerInputsHolder.InputProviders[0].getLeanValue());
+            charactersAnimators[0].SetFloat("PUSH_PULL", -playerInputsHolder.InputProviders[0].getLeanValue());
             charactersAnimators[1].SetFloat("PUSH_PULL", playerInputsHolder.InputProviders[1].getLeanValue());
         }
 

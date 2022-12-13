@@ -9,6 +9,7 @@ public class CartVFX : MonoBehaviour
     [Header("VFX References")]
     [SerializeField] private List<ParticleSystem> leanLeft;
     [SerializeField] private List<ParticleSystem> leanRight;
+    [SerializeField] private ParticleSystem dust;
     [SerializeField] private ParticleSystem speed;
     [SerializeField] private GameObject hitVFX;
 
@@ -30,7 +31,14 @@ public class CartVFX : MonoBehaviour
 
     private void Update()
     {
-        SpeedVFX();
+        //SpeedVFX();
+
+        var emissionDust = dust.emission;
+        emissionDust.rateOverTime = Mathf.Clamp((float)(cartController.CartSpeed * 2.5) - 5, 0, 30);
+
+        var emissionSpeed = speed.emission;
+        emissionSpeed.rateOverTime = Mathf.Clamp((float)(cartController.CartSpeed * 2.5) - 5, 0, 30);
+
     }
 
     public void HitVFX(Vector3 position)
