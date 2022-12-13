@@ -12,12 +12,21 @@ public class TransitionUI : MonoBehaviour
         if (!on)
         {
             hideTransition.PlayFeedbacks();
-            hideTransition.Events.OnComplete.AddListener(() => onComplete?.Invoke());
+            hideTransition.Events.OnComplete.AddListener(() =>
+            {
+                onComplete?.Invoke();
+                hideTransition.Events.OnComplete.RemoveAllListeners();
+            });
         }
         else
         {
             displayTransition.PlayFeedbacks();
-            displayTransition.Events.OnComplete.AddListener(() => onComplete?.Invoke());
+            displayTransition.Events.OnComplete.AddListener(() =>
+            {
+                onComplete?.Invoke();
+                displayTransition.Events.OnComplete.RemoveAllListeners();
+            });
+
         }
     }
 }

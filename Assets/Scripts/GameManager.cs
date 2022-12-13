@@ -45,10 +45,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent onWin;
     [SerializeField] private UnityEvent onLose;
 
-    [SerializeField] private GameState gameState;
+    private GameState gameState;
 
-    
-    
     private void Start()
     {
         transitionUI.Transition(false, () => {});
@@ -73,7 +71,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Stop game !");
         // Logic when the game ends
-        if (gameState != GameState.End)
+        if (gameState == GameState.Gameplay)
         {
             gameState = GameState.End;
             timer.Pause();
@@ -97,14 +95,15 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        Debug.Log("Reset Game");
+        Debug.Log("Reset Game " + gameState);
         if (gameState == GameState.End)
         {
+            Debug.Log("Resetting Game !");
+            playerInputsHolder.InputProviders[0].onPump -= i => ResetGame();
+            playerInputsHolder.InputProviders[1].onPump -= i => ResetGame();
+            
             transitionUI.Transition(true, () =>
             {
-                playerInputsHolder.InputProviders[0].onPump -=  i => ResetGame();
-                playerInputsHolder.InputProviders[1].onPump -=  i => ResetGame();
-                
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             });
         }
@@ -113,6 +112,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("GameState : " + gameState); 
     }
 
     [ContextMenu("reload")]

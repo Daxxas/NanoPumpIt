@@ -38,8 +38,6 @@ public class HitboxManager : MonoBehaviour
 
     public void SetActiveHitbox(int index, bool isActive)
     {
-        Debug.Log(playerHitboxes[index].Collider == null);
-
         playerHitboxes[index].Collider.enabled = isActive;
     }
 

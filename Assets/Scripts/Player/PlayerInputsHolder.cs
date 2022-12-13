@@ -15,7 +15,8 @@ public class PlayerInputsHolder : MonoBehaviour
 
     public Action onPlayerJoined;
     public Action onPlayerLeft;
-
+ 
+    
     private void Start()
     {
         //DontDestroyOnLoad(gameObject);
