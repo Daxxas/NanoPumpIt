@@ -60,7 +60,6 @@ public class CartController : MonoBehaviour
     private int leanDirection = 0;
     public int LeanDirection => leanDirection;
 
-    //public float CartMaxSpeed => 0;
     public float CartSpeed
     {
         get => cartSpeed;
