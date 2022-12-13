@@ -1028,6 +1028,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.43
       objectReference: {fileID: 0}
+    - target: {fileID: 4236576554713289197, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: playSoundOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4546876128279251033, guid: f4f77f7017a78404fbd97693ab351ecd,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1113,6 +1118,21 @@ PrefabInstance:
       propertyPath: cartDeccelerationRate
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: onCartLean.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: onCartLean.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194796, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: onCartLean.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioSoundPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4546876128747194797, guid: f4f77f7017a78404fbd97693ab351ecd,
         type: 3}
       propertyPath: pumpTooFast
@@ -1128,6 +1148,41 @@ PrefabInstance:
       propertyPath: playerInputsHolder
       value: 
       objectReference: {fileID: 1276036982}
+    - target: {fileID: 4546876128747194797, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: onPump.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194797, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: onPump.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194797, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: onPump.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194798, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194798, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194798, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546876128747194798, guid: f4f77f7017a78404fbd97693ab351ecd,
+        type: 3}
+      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: CartVFX, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4546876128747194799, guid: f4f77f7017a78404fbd97693ab351ecd,
         type: 3}
       propertyPath: m_Name
