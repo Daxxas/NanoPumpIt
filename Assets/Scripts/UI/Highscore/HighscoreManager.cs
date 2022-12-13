@@ -5,7 +5,7 @@ public class HighscoreManager : MonoBehaviour
 {
     private List<Highscore> highscores = new List<Highscore>();
     public List<Highscore> Highscores => highscores;
-
+    
     private int highscoreCount = 10;
     
     [ContextMenu("Load Highscores")]
@@ -26,7 +26,7 @@ public class HighscoreManager : MonoBehaviour
             }
         }
     }
-    
+
     public void RegisterNewHighscore(float time, string name)
     {
         Debug.Log("Trying to add " + name + " with time " + time);

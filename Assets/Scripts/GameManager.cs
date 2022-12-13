@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TransitionUI transitionUI;
     [SerializeField] private PlayerInputsHolder playerInputsHolder;
     [SerializeField] private Timer timer;
+    [SerializeField] private InputSystemUIInputModule inputModule;
 
     [Header("Events")] 
     [SerializeField] private UnityEvent onWin;
@@ -73,10 +75,10 @@ public class GameManager : MonoBehaviour
         // Logic when the game ends
         if (gameState == GameState.Gameplay)
         {
+            inputModule.enabled = true;
+            
             gameState = GameState.End;
             timer.Pause();
-            playerInputsHolder.InputProviders[0].onPump += i => ResetGame();
-            playerInputsHolder.InputProviders[1].onPump += i => ResetGame();
             
             if (endCondition == EndCondition.Lose)
             {
@@ -97,20 +99,11 @@ public class GameManager : MonoBehaviour
     {
         if (gameState == GameState.End)
         {
-            playerInputsHolder.InputProviders[0].onPump -= i => ResetGame();
-            playerInputsHolder.InputProviders[1].onPump -= i => ResetGame();
-            
             transitionUI.Transition(true, () =>
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             });
         }
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log("GameState : " + gameState); 
     }
 
     [ContextMenu("reload")]
