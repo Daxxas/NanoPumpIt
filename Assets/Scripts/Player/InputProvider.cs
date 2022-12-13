@@ -15,7 +15,7 @@ public class InputProvider : MonoBehaviour
     private void Start()
     {
         playerInfo = GetComponent<PlayerInfo>();
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     public void Pump(InputAction.CallbackContext context)

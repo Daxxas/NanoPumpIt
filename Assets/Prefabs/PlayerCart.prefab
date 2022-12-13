@@ -490,6 +490,7 @@ MonoBehaviour:
   leanRight:
   - {fileID: 2100107963308387256}
   - {fileID: 658680214770047958}
+  dust: {fileID: 2960824235030465879}
   speed: {fileID: 3979853350356672407}
   hitVFX: {fileID: 745852988755609669, guid: 5f3948edb950aed469f1c6387a026b44, type: 3}
   cartController: {fileID: 4546876128747194796}
@@ -1070,10 +1071,9 @@ MonoBehaviour:
   - {fileID: 1615628577}
   - {fileID: 1933804749}
   cartAnimator: {fileID: 4523724305162183490}
-  cartMinSpeed: 1
-  cartMaxSpeed: 5
-  cartPumpAcceleration: 0.2
-  cartDeccelerationRate: 0.01
+  cartMinSpeed: 0
+  cartPumpAcceleration: 0.3
+  cartDeccelerationRate: 0.001
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -2424,12 +2424,12 @@ PrefabInstance:
     - target: {fileID: 971074258538656897, guid: d338f2e5889140f4cbce9ec8e8598da7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 971074258538656897, guid: d338f2e5889140f4cbce9ec8e8598da7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.293
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 971074258538656897, guid: d338f2e5889140f4cbce9ec8e8598da7,
         type: 3}
@@ -2481,16 +2481,72 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 971074258538656898, guid: d338f2e5889140f4cbce9ec8e8598da7,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971074258538656898, guid: d338f2e5889140f4cbce9ec8e8598da7,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 971074258538656898, guid: d338f2e5889140f4cbce9ec8e8598da7,
+        type: 3}
+      propertyPath: ShapeModule.radius.spread
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971074258538656898, guid: d338f2e5889140f4cbce9ec8e8598da7,
+        type: 3}
+      propertyPath: ShapeModule.randomPositionAmount
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971074258538656898, guid: d338f2e5889140f4cbce9ec8e8598da7,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971074258538656898, guid: d338f2e5889140f4cbce9ec8e8598da7,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 971074258538656898, guid: d338f2e5889140f4cbce9ec8e8598da7,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971074258538656898, guid: d338f2e5889140f4cbce9ec8e8598da7,
+        type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971074258538656898, guid: d338f2e5889140f4cbce9ec8e8598da7,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.minScalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 971074258538656924, guid: d338f2e5889140f4cbce9ec8e8598da7,
         type: 3}
       propertyPath: m_Name
       value: FX_Dust_BehindKart
+      objectReference: {fileID: 0}
+    - target: {fileID: 971074258538656924, guid: d338f2e5889140f4cbce9ec8e8598da7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d338f2e5889140f4cbce9ec8e8598da7, type: 3}
 --- !u!4 &2960824235030465876 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 971074258538656897, guid: d338f2e5889140f4cbce9ec8e8598da7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2625324876401162709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2960824235030465879 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 971074258538656898, guid: d338f2e5889140f4cbce9ec8e8598da7,
     type: 3}
   m_PrefabInstance: {fileID: 2625324876401162709}
   m_PrefabAsset: {fileID: 0}
