@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 1342859488822578402}
   - component: {fileID: 4540403529688644811}
   m_Layer: 6
-  m_Name: Mesh_Lustre
+  m_Name: Mesh_Lustre_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

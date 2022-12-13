@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 [RequireComponent(typeof(Collider))]
@@ -8,6 +9,7 @@ public class PlayerHitbox : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayer;
 
     public Action<Vector3> onHit;
+    public UnityEvent onHitUnity;
 
     private Collider boxCollider;
 
@@ -39,6 +41,7 @@ public class PlayerHitbox : MonoBehaviour
 
             Debug.Log("Obstacle hit !");
             onHit?.Invoke(collisionPoint);
+            onHitUnity?.Invoke();
         }
     }
 }

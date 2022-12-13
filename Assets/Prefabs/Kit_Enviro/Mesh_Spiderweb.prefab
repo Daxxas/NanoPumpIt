@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 638794705096020682}
   - component: {fileID: 3957342201993066021}
   - component: {fileID: 3423859758736792079}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh_Spiderweb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,6 +134,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX_Spider (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1508809512562009942, guid: 3131a16675e906642970c97daba18b08,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1889565958449880966, guid: 3131a16675e906642970c97daba18b08,
         type: 3}
       propertyPath: m_RootOrder
@@ -214,6 +219,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX_Spider (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1508809512562009942, guid: 3131a16675e906642970c97daba18b08,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1889565958449880966, guid: 3131a16675e906642970c97daba18b08,
         type: 3}
       propertyPath: m_RootOrder
@@ -288,6 +298,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FX_Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508809512562009942, guid: 3131a16675e906642970c97daba18b08,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1889565958449880966, guid: 3131a16675e906642970c97daba18b08,
         type: 3}
