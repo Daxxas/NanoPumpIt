@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/JacquesScene.unity
-    guid: d3c79ddd7a399b04e870f223568e9b93
-  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: b1621fc70ad6e6542b2c56393eecfb3d
-  - enabled: 1
-    path: Assets/Scenes/MMAdditiveLoadingScreenFastFade.unity
-    guid: 8101c376367d6e44f84e602722e5ac10
   m_configObjects: {}
