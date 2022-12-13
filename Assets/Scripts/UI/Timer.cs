@@ -32,6 +32,7 @@ public class Timer : MonoBehaviour
             if (time <= 0)
             {
                 Pause();
+                time = 0.000f;
                 onTimerReachZero?.Invoke();
             }
             UpdateText();
