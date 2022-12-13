@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
 
     private float defaultTime = 180f;
+    public float DefaultTime => defaultTime;
     private float time;
     private bool playing = false;
 
