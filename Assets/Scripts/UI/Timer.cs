@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI text;
 
-    private float defaultTime = 180f;
+    [SerializeField] private UnityEvent onTimerReachZero;
+    
+    [SerializeField] private float defaultTime = 180f;
     public float DefaultTime => defaultTime;
     private float time;
     private bool playing = false;
@@ -26,6 +29,11 @@ public class Timer : MonoBehaviour
         if (playing)
         {
             time -= Mathf.Max(Time.deltaTime, 0);
+            if (time <= 0)
+            {
+                Pause();
+                onTimerReachZero?.Invoke();
+            }
             UpdateText();
         }
         

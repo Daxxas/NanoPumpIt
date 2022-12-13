@@ -95,6 +95,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoseGame()
+    {
+        StopGame(EndCondition.Lose);
+    }
+    
     public void ResetGame()
     {
         if (gameState == GameState.End)
