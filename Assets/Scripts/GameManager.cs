@@ -95,10 +95,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        Debug.Log("Reset Game " + gameState);
         if (gameState == GameState.End)
         {
-            Debug.Log("Resetting Game !");
             playerInputsHolder.InputProviders[0].onPump -= i => ResetGame();
             playerInputsHolder.InputProviders[1].onPump -= i => ResetGame();
             
