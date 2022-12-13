@@ -1483,25 +1483,25 @@ MonoBehaviour:
   onCartLean:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4236576554713289197}
-        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
-        m_MethodName: StartSoundLoop
-        m_Mode: 1
+      - m_Target: {fileID: 8973951457842905239}
+        m_TargetAssemblyTypeName: AudioParameterSetter, Assembly-CSharp
+        m_MethodName: ApplyParameter
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   onCartLeanStop:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4236576554713289197}
-        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
-        m_MethodName: StopSoundLoop
-        m_Mode: 1
+      - m_Target: {fileID: 8973951457842905239}
+        m_TargetAssemblyTypeName: AudioParameterSetter, Assembly-CSharp
+        m_MethodName: ApplyParameter
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2041,6 +2041,7 @@ Transform:
   - {fileID: 936868527258701961}
   - {fileID: 4312675840257249985}
   - {fileID: 6707987114580704216}
+  - {fileID: 6162498565855769915}
   m_Father: {fileID: 4546876128747194795}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2325,10 +2326,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundRef:
     Guid:
-      Data1: -1671921039
-      Data2: 1083076367
-      Data3: 1225909658
-      Data4: 25060747
+      Data1: -213653265
+      Data2: 1338135345
+      Data3: -1636605252
+      Data4: -982450513
     Path: event:/SFX/ErrorInput
   setupSoundOnStart: 0
   playSoundOnStart: 0
@@ -3074,7 +3075,7 @@ Animator:
   m_GameObject: {fileID: 7976278425331045300}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9033996c4da3c0747a9d0e4a2b5958c5, type: 3}
-  m_Controller: {fileID: 9100000, guid: 07e7cd1eb598b18448144b00c3506706, type: 2}
+  m_Controller: {fileID: 9100000, guid: d8123eb4397df964e98aaa4b17ebe602, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3137,6 +3138,52 @@ MonoBehaviour:
     Path: event:/SFX/ImpactObstacleChandelierLeft
   setupSoundOnStart: 0
   playSoundOnStart: 0
+--- !u!1 &8556919421157595287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6162498565855769915}
+  - component: {fileID: 8973951457842905239}
+  m_Layer: 0
+  m_Name: CartRollingParameter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6162498565855769915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8556919421157595287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3917308017365381767}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8973951457842905239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8556919421157595287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb97f0eb6454b0d868fe3f532d327e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameter: IsKartSliding
+  value: 0
 --- !u!1 &8711700292960487020
 GameObject:
   m_ObjectHideFlags: 0
@@ -3998,16 +4045,6 @@ PrefabInstance:
       objectReference: {fileID: 4546876128747194796}
     - target: {fileID: 4704543633042224207, guid: fd9d25b07d79da94b9b567ce24483c72,
         type: 3}
-      propertyPath: onPathStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704543633042224207, guid: fd9d25b07d79da94b9b567ce24483c72,
-        type: 3}
-      propertyPath: onPathMiddle.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704543633042224207, guid: fd9d25b07d79da94b9b567ce24483c72,
-        type: 3}
       propertyPath: onPathStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2275306298875589107}
@@ -4016,26 +4053,6 @@ PrefabInstance:
       propertyPath: onPathMiddle.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2275306298875589107}
-    - target: {fileID: 4704543633042224207, guid: fd9d25b07d79da94b9b567ce24483c72,
-        type: 3}
-      propertyPath: onPathStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ApplyParameter
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704543633042224207, guid: fd9d25b07d79da94b9b567ce24483c72,
-        type: 3}
-      propertyPath: onPathMiddle.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ApplyParameter
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704543633042224207, guid: fd9d25b07d79da94b9b567ce24483c72,
-        type: 3}
-      propertyPath: onPathStart.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AudioParameterSetter, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704543633042224207, guid: fd9d25b07d79da94b9b567ce24483c72,
-        type: 3}
-      propertyPath: onPathMiddle.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AudioParameterSetter, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd9d25b07d79da94b9b567ce24483c72, type: 3}
 --- !u!4 &3192539769120281731 stripped
