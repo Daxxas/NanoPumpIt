@@ -13,6 +13,11 @@ public class HighscoreBoard : MonoBehaviour
     [Header("Feedbacks")]
     [SerializeField] private MMF_Player showFeedback;
     [SerializeField] private MMF_Player hideFeedback;
+
+    [Header("Settings")] 
+    [SerializeField] private Color firstColor;
+    [SerializeField] private Color lastColor;
+    
     
     private void Start()
     {
@@ -32,7 +37,8 @@ public class HighscoreBoard : MonoBehaviour
             
             var highscoreEntryGameObject = Instantiate(highscoreEntryPrefab, highscoreEntryContainer);
             var highscoreEntryUI = highscoreEntryGameObject.GetComponent<HighscoreEntryUI>();
-            highscoreEntryUI.SetHighscoreEntry(i, highscoreEntry);
+            Color color = Color.Lerp(firstColor, lastColor, (float)i / highscoreManager.Highscores.Count);
+            highscoreEntryUI.SetHighscoreEntry(i, color, highscoreEntry);
         }
     }
 

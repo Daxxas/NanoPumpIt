@@ -7,10 +7,11 @@ public class HighscoreEntryUI : MonoBehaviour
     [Header("References")] 
     [SerializeField] private TextMeshProUGUI TMPText;
 
-    public void SetHighscoreEntry(int position, HighscoreManager.Highscore highscore)
+    public void SetHighscoreEntry(int position, Color color, HighscoreManager.Highscore highscore)
     {
         position++;
         TMPText.text = position + ". " + highscore.name + " - " + FloatToTime(highscore.time);
+        TMPText.color = color;
     }
 
     private string FloatToTime(float time)
