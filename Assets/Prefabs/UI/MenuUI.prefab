@@ -941,6 +941,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInputsHolder: {fileID: 0}
+  PButton:
+  - {fileID: 5359974486943994427}
+  - {fileID: 5359974487908654927}
   GDs:
   - {fileID: 7841907102999844925}
   - {fileID: 1332372069925438896}
@@ -1662,7 +1665,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3815287f17b0c424c987629e1b65e1be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a408c935daf63248a0e560a9e4c3d52, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1834,8 +1837,8 @@ MonoBehaviour:
   pumpIndicators:
   - {fileID: 5359974487908654925}
   - {fileID: 5359974486943994425}
-  pumpOn: {fileID: 21300000, guid: 3815287f17b0c424c987629e1b65e1be, type: 3}
-  pumpOff: {fileID: 21300000, guid: c8d94cabe94483948b06d0c4bce28b83, type: 3}
+  pumpOn: {fileID: 21300000, guid: 9a408c935daf63248a0e560a9e4c3d52, type: 3}
+  pumpOff: {fileID: 21300000, guid: 1a9387de5f59c424597b67fa55e066bd, type: 3}
   fadeOut: {fileID: 5359974486104722332}
   pumpCountBeforeFadeOut: 5
 --- !u!1 &5359974487908654927
@@ -1904,7 +1907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3815287f17b0c424c987629e1b65e1be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a408c935daf63248a0e560a9e4c3d52, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
