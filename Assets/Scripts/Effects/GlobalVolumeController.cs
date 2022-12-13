@@ -58,7 +58,6 @@ Chromatic aberration : 0.2
     private void Update()
     {
         float targetStyle = Sigmoid(Mathf.Log(Mathf.Max(cartController.CartSpeed, 0.01f) * 0.1f));
-        Debug.Log(targetStyle);
         currentStyle = Mathf.Lerp(currentStyle, targetStyle, Time.deltaTime);
         SetStyle(currentStyle);
         //chromaticAberration.intensity.value = 200f;

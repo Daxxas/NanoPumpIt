@@ -133,57 +133,27 @@ PrefabInstance:
     - target: {fileID: 3558304260930909245, guid: 4e4f07bfc3c03874385cf307d3556409,
         type: 3}
       propertyPath: soundRef.Path
-      value: 
+      value: event:/Music
       objectReference: {fileID: 0}
     - target: {fileID: 3558304260930909245, guid: 4e4f07bfc3c03874385cf307d3556409,
         type: 3}
       propertyPath: soundRef.Guid.Data1
-      value: 0
+      value: -1331244916
       objectReference: {fileID: 0}
     - target: {fileID: 3558304260930909245, guid: 4e4f07bfc3c03874385cf307d3556409,
         type: 3}
       propertyPath: soundRef.Guid.Data2
-      value: 0
+      value: 1333802435
       objectReference: {fileID: 0}
     - target: {fileID: 3558304260930909245, guid: 4e4f07bfc3c03874385cf307d3556409,
         type: 3}
       propertyPath: soundRef.Guid.Data3
-      value: 0
+      value: 287690903
       objectReference: {fileID: 0}
     - target: {fileID: 3558304260930909245, guid: 4e4f07bfc3c03874385cf307d3556409,
         type: 3}
       propertyPath: soundRef.Guid.Data4
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236576554713289197, guid: 4e4f07bfc3c03874385cf307d3556409,
-        type: 3}
-      propertyPath: soundRef.Path
-      value: event:/SFX/KartLocomotion
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236576554713289197, guid: 4e4f07bfc3c03874385cf307d3556409,
-        type: 3}
-      propertyPath: playSoundOnStart
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236576554713289197, guid: 4e4f07bfc3c03874385cf307d3556409,
-        type: 3}
-      propertyPath: soundRef.Guid.Data1
-      value: 1055641690
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236576554713289197, guid: 4e4f07bfc3c03874385cf307d3556409,
-        type: 3}
-      propertyPath: soundRef.Guid.Data2
-      value: 1143876249
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236576554713289197, guid: 4e4f07bfc3c03874385cf307d3556409,
-        type: 3}
-      propertyPath: soundRef.Guid.Data3
-      value: 1977277570
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236576554713289197, guid: 4e4f07bfc3c03874385cf307d3556409,
-        type: 3}
-      propertyPath: soundRef.Guid.Data4
-      value: -1045112193
+      value: 2057026659
       objectReference: {fileID: 0}
     - target: {fileID: 4546876128747194795, guid: 4e4f07bfc3c03874385cf307d3556409,
         type: 3}
@@ -1403,7 +1373,7 @@ PrefabInstance:
     - target: {fileID: 3941237536081532197, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
       propertyPath: field of view
-      value: 64.5328
+      value: 60.01841
       objectReference: {fileID: 0}
     - target: {fileID: 3941237536081532197, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
@@ -1468,7 +1438,7 @@ PrefabInstance:
     - target: {fileID: 3941237536305129956, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 64.5328
+      value: 60.01841
       objectReference: {fileID: 0}
     - target: {fileID: 3941237536305129957, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
