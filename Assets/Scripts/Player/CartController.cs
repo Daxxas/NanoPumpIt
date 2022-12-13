@@ -89,6 +89,8 @@ public class CartController : MonoBehaviour
     {
         if (playerInputsHolder.InputProviders[0] != null && playerInputsHolder.InputProviders[1] != null)
         {
+            ApplyAcceleration();
+            ApplySpeed();  
             // int lean inputs
             int leanDir0 = playerInputsHolder.InputProviders[0].getLeanDirection();
             int leanDir1 = playerInputsHolder.InputProviders[1].getLeanDirection();
@@ -115,9 +117,6 @@ public class CartController : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateRampCoef();
-
-        ApplyAcceleration();
-        ApplySpeed();  
     }
 
     private void UpdateRampCoef()
@@ -137,11 +136,11 @@ public class CartController : MonoBehaviour
     {
         float oldCartSpeed = CartSpeed;
 
-        CartSpeed -= cartDeccelerationRate * Time.fixedDeltaTime * oldCartSpeed;
+        CartSpeed -= cartDeccelerationRate * Time.deltaTime * oldCartSpeed;
 
         if (oldCartSpeed < 0)
         {
-            CartSpeed += 5f * Time.fixedDeltaTime;
+            CartSpeed += 5f * Time.deltaTime;
         }
          
         //CartSpeed += rampCoef * Time.fixedDeltaTime;
