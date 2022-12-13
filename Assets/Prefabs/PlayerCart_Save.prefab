@@ -613,10 +613,34 @@ MonoBehaviour:
   speedThreshold: 3
   onSpeed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8697995820582526474}
+        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
+        m_MethodName: StartSoundLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onSpeedStop:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8697995820582526474}
+        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
+        m_MethodName: StopSoundLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &974664590681780265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,6 +1120,59 @@ Transform:
   m_Father: {fileID: 532040841452660702}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3802562392532907350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5158115953949769828}
+  - component: {fileID: 1378812247199640213}
+  m_Layer: 0
+  m_Name: ErrorInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5158115953949769828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3802562392532907350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3917308017365381767}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1378812247199640213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3802562392532907350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010c6b4ff9c42e4baa660dfd4fa76ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: -1671921039
+      Data2: 1083076367
+      Data3: 1225909658
+      Data4: 25060747
+    Path: event:/SFX/ErrorInput
+  setupSoundOnStart: 0
+  playSoundOnStart: 0
 --- !u!1 &4130964004572353661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,9 +1223,9 @@ MonoBehaviour:
       Data2: 1143876249
       Data3: 1977277570
       Data4: -1045112193
-    Path: event:/KartLocomotion
+    Path: event:/SFX/KartLocomotion
   setupSoundOnStart: 1
-  playSoundOnStart: 0
+  playSoundOnStart: 1
 --- !u!1 &4546876128279251036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,13 +1561,49 @@ MonoBehaviour:
     m_RotationOrder: 4
   onPump:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7140936894818467271}
+        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onWrongPump:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1378812247199640213}
+        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPumpTooFast:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1378812247199640213}
+        m_TargetAssemblyTypeName: AudioSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   currentMinPumpTime: 0.1
 --- !u!114 &4546876128747194798
 MonoBehaviour:
@@ -1807,12 +1920,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4607772069604374674}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3628354469869694086}
+  - {fileID: 4869934286371630759}
+  - {fileID: 2846966992875855568}
+  - {fileID: 5158115953949769828}
+  - {fileID: 6412977221310844469}
   m_Father: {fileID: 4546876128747194795}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2143,6 +2260,59 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.6710134, y: -0.0011508465, z: 0.00452435}
     m_Extent: {x: 1.5723176, y: 2.9613006, z: 1.7159407}
   m_DirtyAABB: 0
+--- !u!1 &5478423085508980598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2846966992875855568}
+  - component: {fileID: 7140936894818467271}
+  m_Layer: 0
+  m_Name: PlayerLever
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2846966992875855568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478423085508980598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3917308017365381767}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7140936894818467271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478423085508980598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010c6b4ff9c42e4baa660dfd4fa76ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: 1842599036
+      Data2: 1219869201
+      Data3: 980691331
+      Data4: 1137152155
+    Path: event:/SFX/PlayersLever
+  setupSoundOnStart: 0
+  playSoundOnStart: 0
 --- !u!1 &5547085697428644874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,6 +2431,112 @@ Transform:
   m_Father: {fileID: 532040841452660702}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6296750948131768566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4869934286371630759}
+  - component: {fileID: 3558304260930909245}
+  m_Layer: 0
+  m_Name: MusicLevel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4869934286371630759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296750948131768566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3917308017365381767}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3558304260930909245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296750948131768566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010c6b4ff9c42e4baa660dfd4fa76ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: -1331244916
+      Data2: 1333802435
+      Data3: 287690903
+      Data4: 2057026659
+    Path: event:/Music
+  setupSoundOnStart: 1
+  playSoundOnStart: 1
+--- !u!1 &6683304773058754006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6412977221310844469}
+  - component: {fileID: 8697995820582526474}
+  m_Layer: 0
+  m_Name: SpeedWhoosh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6412977221310844469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683304773058754006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3917308017365381767}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8697995820582526474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683304773058754006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b010c6b4ff9c42e4baa660dfd4fa76ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundRef:
+    Guid:
+      Data1: 1238518973
+      Data2: 1271206155
+      Data3: -876374652
+      Data4: 788609165
+    Path: event:/SFX/SpeedWhoosh
+  setupSoundOnStart: 1
+  playSoundOnStart: 0
 --- !u!1 &7419727002566812282
 GameObject:
   m_ObjectHideFlags: 0
