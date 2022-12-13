@@ -330,12 +330,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234069925131719137}
-  m_LocalRotation: {x: -0.0000016689087, y: -0.000000008471339, z: 0.0050759097, w: 0.9999871}
+  m_LocalRotation: {x: -0.0000016919271, y: -0.00000000858818, z: 0.005145919, w: 0.99998677}
   m_LocalPosition: {x: -3.1633685, y: -1.4368246, z: 0.00000030517575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6202463517331109167}
+  - {fileID: 254950360649154093}
+  - {fileID: 3609964585218424751}
   m_Father: {fileID: 5489308568384642343}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -509,7 +511,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393783918934419162}
-  m_LocalRotation: {x: 1.6900717e-13, y: -1.7763568e-15, z: 3.0021704e-28, w: 1}
+  m_LocalRotation: {x: 1.6909237e-13, y: -1.7772524e-15, z: 3.003684e-28, w: 1}
   m_LocalPosition: {x: -0.7151002, y: -0.00000017046928, z: -1.8189893e-13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -608,8 +610,12 @@ MonoBehaviour:
   - {fileID: 658680214770047958}
   dust: {fileID: 2960824235030465879}
   speed: {fileID: 3979853350356672407}
+  lever: {fileID: 7545638546361730602, guid: e43e22a4de8ee4248913a222ebbd0797, type: 3}
   hitVFX: {fileID: 745852988755609669, guid: 5f3948edb950aed469f1c6387a026b44, type: 3}
   cartController: {fileID: 4546876128747194796}
+  pumpController: {fileID: 4546876128747194797}
+  leverFXLeft: {fileID: 254950360649154093}
+  leverFXRight: {fileID: 3609964585218424751}
   speedThreshold: 3
   onSpeed:
     m_PersistentCalls:
@@ -817,6 +823,37 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.4623201, y: -1.3802258, z: -0.7788096}
     m_Extent: {x: 0.5207894, y: 0.15060508, z: 0.5206427}
   m_DirtyAABB: 0
+--- !u!1 &1386642155625805408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3609964585218424751}
+  m_Layer: 0
+  m_Name: LeverRightFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3609964585218424751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386642155625805408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.495, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2323099332585826823}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1581390792304410273
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +885,37 @@ Transform:
   m_Father: {fileID: 4546876128747194795}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1703231974896053231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 254950360649154093}
+  m_Layer: 0
+  m_Name: LeverLeftFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &254950360649154093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703231974896053231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.517, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2323099332585826823}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2030999201638161803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,7 +3074,7 @@ Animator:
   m_GameObject: {fileID: 7976278425331045300}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9033996c4da3c0747a9d0e4a2b5958c5, type: 3}
-  m_Controller: {fileID: 9100000, guid: d8123eb4397df964e98aaa4b17ebe602, type: 2}
+  m_Controller: {fileID: 9100000, guid: 07e7cd1eb598b18448144b00c3506706, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
