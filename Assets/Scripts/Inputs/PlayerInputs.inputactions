@@ -58,6 +58,17 @@
                 },
                 {
                     "name": "",
+                    "id": "fde45bf4-d631-4ab0-8695-4c1775cfd7b9",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f39345a4-db10-4dd1-86c9-c9ce48c7aa54",
                     "path": "<Keyboard>/q",
                     "interactions": "",
