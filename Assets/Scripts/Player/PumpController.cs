@@ -78,6 +78,8 @@ public class PumpController : MonoBehaviour
         
         if (playerIndex == playerIndexTurn)
         {
+            if(cartController.LeanDirection != 0) return;
+            
             if (!canPump)
             {
                 Debug.Log("Pump too fast !");
