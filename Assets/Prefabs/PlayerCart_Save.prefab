@@ -620,7 +620,7 @@ MonoBehaviour:
   leverFXRight: {fileID: 3609964585218424751}
   goutteFXLeft: {fileID: 1848377937615826851}
   goutteFXRight: {fileID: 5163190376025221361}
-  speedThreshold: 9
+  speedThreshold: 15
   onSpeed:
     m_PersistentCalls:
       m_Calls:
@@ -1448,8 +1448,8 @@ MonoBehaviour:
   - {fileID: 7024124054453399934}
   cartAnimator: {fileID: 4523724305162183490}
   cartMinSpeed: 0.001
-  cartPumpAcceleration: 2.5
-  cartDeccelerationRate: 0.1
+  cartPumpAcceleration: 3.5
+  cartDeccelerationRate: 0.08
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -1600,8 +1600,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  pumpTooFast: 0.5
-  pumpWrongTurn: 0.5
+  pumpTooFast: 0.3
+  pumpWrongTurn: 0.3
   characterMovementCurve:
     serializedVersion: 2
     m_Curve:
