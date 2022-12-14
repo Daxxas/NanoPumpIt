@@ -59,11 +59,11 @@ public class CartVFX : MonoBehaviour
     {
         if (pumpController.PlayerIndexTurn == 0)
         {
-            Instantiate(goutteVFX, goutteFXLeft.transform.position, Quaternion.identity);
+            Instantiate(goutteVFX, goutteFXLeft.transform.position, Quaternion.identity, goutteFXLeft);
         }
         else
         {
-            Instantiate(goutteVFX, goutteFXRight.transform.position, Quaternion.identity);
+            Instantiate(goutteVFX, goutteFXRight.transform.position, Quaternion.identity, goutteFXRight);
         }
     }
     
