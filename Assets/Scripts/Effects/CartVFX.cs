@@ -13,12 +13,15 @@ public class CartVFX : MonoBehaviour
     [SerializeField] private ParticleSystem speed;
     [SerializeField] private GameObject lever;
     [SerializeField] private GameObject hitVFX;
+    [SerializeField] private GameObject goutteVFX;
 
     [Header("References")] 
     [SerializeField] private CartController cartController;
     [SerializeField] private PumpController pumpController;
     [SerializeField] private Transform leverFXLeft;
     [SerializeField] private Transform leverFXRight;
+    [SerializeField] private Transform goutteFXLeft;
+    [SerializeField] private Transform goutteFXRight;
 
     [Header("Parameters")] 
     [SerializeField] private float speedThreshold = 3f;
@@ -32,6 +35,7 @@ public class CartVFX : MonoBehaviour
         cartController.OnCartLean.AddListener(LeanVFX);
         cartController.OnCartLeanStop.AddListener(LeanVFX);
         pumpController.onPump.AddListener(PumpFX);
+        pumpController.onWrongPump.AddListener(WrongPumpVFX);
     }
 
     private void Update()
@@ -51,6 +55,18 @@ public class CartVFX : MonoBehaviour
         Instantiate(hitVFX, position, Quaternion.identity);
     }
 
+    public void WrongPumpVFX()
+    {
+        if (pumpController.PlayerIndexTurn == 0)
+        {
+            Instantiate(goutteVFX, goutteFXLeft.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(goutteVFX, goutteFXRight.transform.position, Quaternion.identity);
+        }
+    }
+    
     public void PumpFX()
     {
         if (pumpController.PlayerIndexTurn == 0)
