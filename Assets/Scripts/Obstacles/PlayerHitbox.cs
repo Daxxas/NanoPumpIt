@@ -39,6 +39,8 @@ public class PlayerHitbox : MonoBehaviour
             // Collision normal
             //var collisionNormal = transform.position - collisionPoint;
 
+            other.enabled = false;
+            
             Debug.Log("Obstacle hit !");
             onHit?.Invoke(collisionPoint);
             onHitUnity?.Invoke();
