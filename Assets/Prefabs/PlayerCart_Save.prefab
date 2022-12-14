@@ -612,10 +612,14 @@ MonoBehaviour:
   speed: {fileID: 3979853350356672407}
   lever: {fileID: 7545638546361730602, guid: e43e22a4de8ee4248913a222ebbd0797, type: 3}
   hitVFX: {fileID: 745852988755609669, guid: 5f3948edb950aed469f1c6387a026b44, type: 3}
+  goutteVFX: {fileID: 7675334659819350086, guid: 1228c0d03332e1e44ae1065a1643f767,
+    type: 3}
   cartController: {fileID: 4546876128747194796}
   pumpController: {fileID: 4546876128747194797}
   leverFXLeft: {fileID: 254950360649154093}
   leverFXRight: {fileID: 3609964585218424751}
+  goutteFXLeft: {fileID: 1848377937615826851}
+  goutteFXRight: {fileID: 5163190376025221361}
   speedThreshold: 9
   onSpeed:
     m_PersistentCalls:
@@ -1377,6 +1381,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2660333664898484102}
+  - {fileID: 5163190376025221361}
   m_Father: {fileID: 5489308568384642343}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1925,6 +1930,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2150128401775965309}
+  - {fileID: 1848377937615826851}
   m_Father: {fileID: 5489308568384642343}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -2193,6 +2199,38 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &4940338526905893444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1848377937615826851}
+  m_Layer: 0
+  m_Name: GoutteVFXLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1848377937615826851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4940338526905893444}
+  m_LocalRotation: {x: 0.00000017881385, y: -0.000000059604616, z: 0.000000059604616,
+    w: 1}
+  m_LocalPosition: {x: 0.11999936, y: 2.1900015, z: 4.4000034}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4546876129797759187}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5172331569043993053
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,6 +2318,37 @@ SkinnedMeshRenderer:
     m_Center: {x: -3.1076035, y: 0.0027946234, z: 0}
     m_Extent: {x: 0.18525839, y: 1.6859816, z: 1.2843457}
   m_DirtyAABB: 0
+--- !u!1 &5303064900278206634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5163190376025221361}
+  m_Layer: 0
+  m_Name: GoutteVFXRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5163190376025221361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303064900278206634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.15, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4546876128516435660}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5396329564295450815
 GameObject:
   m_ObjectHideFlags: 0
