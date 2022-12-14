@@ -1018,6 +1018,16 @@ PrefabInstance:
       propertyPath: playerInputsHolder
       value: 
       objectReference: {fileID: 1276036982}
+    - target: {fileID: 4431231506981332774, guid: 19d719a8cc591e543bf5985c4ccc961b,
+        type: 3}
+      propertyPath: pathCreator
+      value: 
+      objectReference: {fileID: 988646532}
+    - target: {fileID: 4431231506981332774, guid: 19d719a8cc591e543bf5985c4ccc961b,
+        type: 3}
+      propertyPath: cartController
+      value: 
+      objectReference: {fileID: 145537391}
     - target: {fileID: 4979460620589680710, guid: 19d719a8cc591e543bf5985c4ccc961b,
         type: 3}
       propertyPath: defaultTime
