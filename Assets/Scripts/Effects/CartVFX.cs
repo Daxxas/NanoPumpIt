@@ -46,7 +46,7 @@ public class CartVFX : MonoBehaviour
         emissionDust.rateOverTime = Mathf.Clamp((float)(cartController.CartSpeed * 2.5) - 5, 0, 30);
 
         var emissionSpeed = speed.emission;
-        emissionSpeed.rateOverTime = Mathf.Clamp((float)(cartController.CartSpeed * 2.5) - 5, 0, 30);
+        emissionSpeed.rateOverTime = Mathf.Clamp((float)(cartController.CartSpeed * 1) - 5, 0, 30);
 
     }
 
