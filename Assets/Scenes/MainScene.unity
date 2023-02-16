@@ -700,11 +700,6 @@ PrefabInstance:
       propertyPath: soundRef.Guid.Data4
       value: 2057026659
       objectReference: {fileID: 0}
-    - target: {fileID: 4523724305162183490, guid: 4e4f07bfc3c03874385cf307d3556409,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d8123eb4397df964e98aaa4b17ebe602, type: 2}
     - target: {fileID: 4546876128747194795, guid: 4e4f07bfc3c03874385cf307d3556409,
         type: 3}
       propertyPath: m_RootOrder
@@ -2801,7 +2796,7 @@ PrefabInstance:
     - target: {fileID: 3941237536081532197, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
       propertyPath: field of view
-      value: 53
+      value: 53.01046
       objectReference: {fileID: 0}
     - target: {fileID: 3941237536081532197, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
@@ -2866,7 +2861,7 @@ PrefabInstance:
     - target: {fileID: 3941237536305129956, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 53
+      value: 53.01046
       objectReference: {fileID: 0}
     - target: {fileID: 3941237536305129957, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
