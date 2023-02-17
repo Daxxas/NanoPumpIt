@@ -1234,7 +1234,7 @@ PrefabInstance:
     - target: {fileID: 4979460620589680710, guid: 19d719a8cc591e543bf5985c4ccc961b,
         type: 3}
       propertyPath: defaultTime
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4979460620589680710, guid: 19d719a8cc591e543bf5985c4ccc961b,
         type: 3}
@@ -1385,6 +1385,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036193446951274116, guid: 19d719a8cc591e543bf5985c4ccc961b,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036193446951274116, guid: 19d719a8cc591e543bf5985c4ccc961b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8247627497365311077, guid: 19d719a8cc591e543bf5985c4ccc961b,
         type: 3}
@@ -2796,22 +2806,22 @@ PrefabInstance:
     - target: {fileID: 3941237536081532197, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
       propertyPath: field of view
-      value: 53.01046
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3941237536081532197, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
       propertyPath: far clip plane
-      value: 1000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 3941237536081532197, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
       propertyPath: near clip plane
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3941237536081532197, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3941237536081532218, guid: 7bd6c6eea59bd2743b338b293f9b72f6,
         type: 3}
