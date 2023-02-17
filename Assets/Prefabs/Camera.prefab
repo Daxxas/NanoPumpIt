@@ -200,8 +200,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3941237536081532193}
-  m_LocalRotation: {x: 0.22971803, y: -0.016975982, z: 0.0040074866, w: 0.97310096}
-  m_LocalPosition: {x: 0.15870348, y: 5.6800003, z: -4.5472307}
+  m_LocalRotation: {x: 0.16245982, y: 0.688191, z: -0.16245984, w: 0.68819094}
+  m_LocalPosition: {x: -3.4060009, y: 5.65, z: -1.9249992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -232,11 +232,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60.01479
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.01479
+    FieldOfView: 55
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -488,9 +488,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cartController: {fileID: 0}
   camera: {fileID: 3941237536305129956}
-  minFOV: 60
-  maxFOV: 70
-  speedForMaxFOV: 5
+  minFOV: 53
+  maxFOV: 58
+  speedForMaxFOV: 10
 --- !u!114 &520546922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,4 +513,4 @@ MonoBehaviour:
     m_AmplitudeGain: 1
     m_FrequencyGain: 1
     m_Duration: 1
-    m_NoiseOffsets: {x: 0, y: 0, z: 0}
+    m_NoiseOffsets: {x: -450.21143, y: 255.72104, z: 762.5134}

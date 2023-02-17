@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4098233405130960756
+--- !u!114 &-6679201679052274358
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,45 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
-  m_Name: LiftGammaGain
+  m_Script: {fileID: 11500000, guid: 221518ef91623a7438a71fef23660601, type: 3}
+  m_Name: WhiteBalance
   m_EditorClassIdentifier: 
   active: 1
-  lift:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
-  gamma:
+  temperature:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9564703, z: 0.92818993, w: 0.10889291}
-  gain:
-    m_OverrideState: 1
-    m_Value: {x: 1, y: 0.89875776, z: 0.9391913, w: 0.13611613}
---- !u!114 &-3819500431542282538
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
-  m_Name: ColorAdjustments
-  m_EditorClassIdentifier: 
-  active: 1
-  postExposure:
-    m_OverrideState: 0
     m_Value: 0
-  contrast:
-    m_OverrideState: 0
-    m_Value: 0
-  colorFilter:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  hueShift:
-    m_OverrideState: 0
-    m_Value: 0
-  saturation:
+  tint:
     m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-2714834791634163941
@@ -91,6 +60,34 @@ MonoBehaviour:
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-1339502073496258284
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: 
+  active: 1
+  postExposure:
+    m_OverrideState: 1
+    m_Value: -0.28
+  contrast:
+    m_OverrideState: 1
+    m_Value: 0.8
+  colorFilter:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  hueShift:
+    m_OverrideState: 0
+    m_Value: -23
+  saturation:
+    m_OverrideState: 1
+    m_Value: -4
 --- !u!114 &-921584890278356693
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -136,12 +133,13 @@ MonoBehaviour:
   - {fileID: -2714834791634163941}
   - {fileID: 4520209937648531978}
   - {fileID: 7979057634538824443}
+  - {fileID: -1339502073496258284}
   - {fileID: -921584890278356693}
   - {fileID: 6524579858316513453}
   - {fileID: 6947959207209832219}
   - {fileID: 6295626322236748252}
-  - {fileID: -4098233405130960756}
-  - {fileID: -3819500431542282538}
+  - {fileID: -6679201679052274358}
+  - {fileID: 7113691554485541264}
 --- !u!114 &4520209937648531978
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -270,6 +268,28 @@ MonoBehaviour:
   balance:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &7113691554485541264
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
+  m_Name: LiftGammaGain
+  m_EditorClassIdentifier: 
+  active: 1
+  lift:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  gamma:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0.08166968}
+  gain:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0.3176043}
 --- !u!114 &7979057634538824443
 MonoBehaviour:
   m_ObjectHideFlags: 3

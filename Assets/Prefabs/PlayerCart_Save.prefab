@@ -417,9 +417,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.6792453, g: 0.36845854, b: 0.4866927, a: 1}
-  m_Intensity: 4
-  m_Range: 2.8183136
+  m_Color: {r: 0.6132076, g: 0.3615611, b: 0.45644426, a: 1}
+  m_Intensity: 3.5
+  m_Range: 3.177683
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -620,7 +620,7 @@ MonoBehaviour:
   leverFXRight: {fileID: 3609964585218424751}
   goutteFXLeft: {fileID: 1848377937615826851}
   goutteFXRight: {fileID: 5163190376025221361}
-  speedThreshold: 9
+  speedThreshold: 15
   onSpeed:
     m_PersistentCalls:
       m_Calls:
@@ -851,7 +851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386642155625805408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24, y: -1.495, z: 0}
+  m_LocalPosition: {x: -0.112, y: 0.001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -913,7 +913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703231974896053231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 1.517, z: 0}
+  m_LocalPosition: {x: -0.112, y: 0.001, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1448,8 +1448,8 @@ MonoBehaviour:
   - {fileID: 7024124054453399934}
   cartAnimator: {fileID: 4523724305162183490}
   cartMinSpeed: 0.001
-  cartPumpAcceleration: 2.5
-  cartDeccelerationRate: 0.1
+  cartPumpAcceleration: 3.5
+  cartDeccelerationRate: 0.08
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -1483,7 +1483,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  finishDistanceFromEnd: 5
+  finishDistanceFromEnd: 122.01
   rotationOffset: {x: -0.49987787, y: 0.5001221, z: -0.49987787, w: -0.5001221}
   onCartLean:
     m_PersistentCalls:
@@ -1600,8 +1600,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  pumpTooFast: 0.5
-  pumpWrongTurn: 0.5
+  pumpTooFast: 0.3
+  pumpWrongTurn: 0.3
   characterMovementCurve:
     serializedVersion: 2
     m_Curve:
@@ -2128,9 +2128,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.6792453, g: 0.36845854, b: 0.4866927, a: 1}
-  m_Intensity: 7
-  m_Range: 2.8183136
+  m_Color: {r: 0.38431373, g: 0.62352943, b: 0.42967907, a: 1}
+  m_Intensity: 5
+  m_Range: 3.287786
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2224,7 +2224,7 @@ Transform:
   m_GameObject: {fileID: 4940338526905893444}
   m_LocalRotation: {x: 0.00000017881385, y: -0.000000059604616, z: 0.000000059604616,
     w: 1}
-  m_LocalPosition: {x: 0.11999936, y: 2.1900015, z: 4.4000034}
+  m_LocalPosition: {x: 0.12, y: 2.19, z: 0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3144,7 +3144,7 @@ Animator:
   m_GameObject: {fileID: 7976278425331045300}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9033996c4da3c0747a9d0e4a2b5958c5, type: 3}
-  m_Controller: {fileID: 9100000, guid: d8123eb4397df964e98aaa4b17ebe602, type: 2}
+  m_Controller: {fileID: 9100000, guid: 07e7cd1eb598b18448144b00c3506706, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

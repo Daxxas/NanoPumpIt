@@ -10,7 +10,8 @@ public class Timer : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private bool timerStartAtZero = true;
+    [SerializeField] private bool timerStartFromZero = true;
+    public bool TimerStartFromZero => timerStartFromZero;
 
     [SerializeField] private UnityEvent onTimerReachZero;
     
@@ -29,14 +30,13 @@ public class Timer : MonoBehaviour
     {
         if (playing)
         {
-            if (timerStartAtZero)
+            if (timerStartFromZero)
             {
                 time += Mathf.Max(Time.deltaTime, 0);
             }
             else
             {
                 time -= Mathf.Max(Time.deltaTime, 0);
-            
                 if (time <= 0)
                 {
                     Pause();

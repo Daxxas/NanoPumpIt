@@ -26,14 +26,14 @@ public class HighscoreSubmitter : MonoBehaviour
             name += letter.CurrentLetter.ToUpper();
         }
 
-        float time = timer.DefaultTime - timer.GetTime();
+        float time = timer.TimerStartFromZero ? timer.GetTime() : timer.DefaultTime - timer.GetTime();
 
         highscoreManager.RegisterNewHighscore(time, name);
     }
 
     public void UpdateTime()
     {
-        float time = timer.DefaultTime - timer.GetTime();
+        float time = timer.TimerStartFromZero ? timer.GetTime() : timer.DefaultTime - timer.GetTime();
 
         var ts = TimeSpan.FromSeconds(time);
         string text = string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds);
