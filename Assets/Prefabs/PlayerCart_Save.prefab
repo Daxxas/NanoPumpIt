@@ -417,9 +417,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.6792453, g: 0.36845854, b: 0.4866927, a: 1}
-  m_Intensity: 4
-  m_Range: 2.8183136
+  m_Color: {r: 0.6132076, g: 0.3615611, b: 0.45644426, a: 1}
+  m_Intensity: 3.5
+  m_Range: 3.177683
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -851,7 +851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386642155625805408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24, y: -1.495, z: 0}
+  m_LocalPosition: {x: -0.112, y: 0.001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -913,7 +913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703231974896053231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 1.517, z: 0}
+  m_LocalPosition: {x: -0.112, y: 0.001, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1483,7 +1483,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  finishDistanceFromEnd: 5
+  finishDistanceFromEnd: 122.01
   rotationOffset: {x: -0.49987787, y: 0.5001221, z: -0.49987787, w: -0.5001221}
   onCartLean:
     m_PersistentCalls:
@@ -2128,9 +2128,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.6792453, g: 0.36845854, b: 0.4866927, a: 1}
-  m_Intensity: 7
-  m_Range: 2.8183136
+  m_Color: {r: 0.38431373, g: 0.62352943, b: 0.42967907, a: 1}
+  m_Intensity: 5
+  m_Range: 3.287786
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

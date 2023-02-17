@@ -71,10 +71,10 @@ public class CartVFX : MonoBehaviour
     {
         if (pumpController.PlayerIndexTurn == 0)
         {
-            Instantiate(lever, leverFXLeft.position, Quaternion.identity);
+            Instantiate(lever, leverFXLeft.position, Quaternion.identity, leverFXLeft);
         }else
         {
-            Instantiate(lever, leverFXRight.position, Quaternion.identity);
+            Instantiate(lever, leverFXRight.position, Quaternion.identity, leverFXRight);
         }
         
     }
